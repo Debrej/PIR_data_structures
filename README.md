@@ -8,6 +8,10 @@
 - avoir hazelcast fonctionnel
 - avoir des test (auto)
 
+Checkpoints Clement:
+-How to Work With Multiple Verticles and Communication in Vert.x 
+https://medium.com/@hakdogan/working-with-multiple-verticles-and-communication-between-them-in-vert-x-2ed07e8e6425
+Ca marche!!!
 
 ## Prochaine réu
 Mercredi 29 8h-9h30
