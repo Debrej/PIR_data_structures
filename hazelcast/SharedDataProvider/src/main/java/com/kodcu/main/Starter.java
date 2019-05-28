@@ -2,6 +2,7 @@ package com.kodcu.main;
 
 import com.kodcu.asm.verticle.PutVerticle;
 import com.kodcu.helper.ClusterConfiguratorHelper;
+import com.hazelcast.config.Config;
 import io.vertx.core.Vertx;
 import io.vertx.core.VertxOptions;
 import io.vertx.core.spi.cluster.ClusterManager;
@@ -21,7 +22,7 @@ public class Starter {
      * @param args
      */
     public static void main(String[] args){
-        final ClusterManager mgr = new HazelcastClusterManager(ClusterConfiguratorHelper.getHazelcastConfiguration());
+        final ClusterManager mgr = new HazelcastClusterManager(ClusterConfiguratorHelper.getHazelcastConfigurationSetUp(args[0],args[1]));
         final VertxOptions options = new VertxOptions().setClusterManager(mgr);
         Vertx.clusteredVertx(options, cluster -> {
             if (cluster.succeeded()) {
