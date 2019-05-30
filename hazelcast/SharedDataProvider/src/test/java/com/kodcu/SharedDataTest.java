@@ -60,7 +60,7 @@ public class SharedDataTest
             time = stockExchange.getTime();
             vertx.setPeriodic(2000, asyncHandler -> {
                 updateStockExchange();
-                //testContext.assertFalse(time.equals(stockExchange.getTime()));
+                testContext.assertFalse(time.equals(stockExchange.getTime()));
                 async.complete();
             });
         });

@@ -36,9 +36,13 @@ public class ClusterConfiguratorHelper
         final GroupConfig groupConfig = config.getGroupConfig();
         groupConfig.setName("dev").setPassword("dev-pass");
 
+        String[] members = memberS.split(" ");
+
         final JoinConfig joinConfig = config.getNetworkConfig().getJoin();
         joinConfig.getMulticastConfig().setEnabled(false);
-        joinConfig.getTcpIpConfig().setEnabled(true).addMember(memberS);
+        for(int i = 0; i < members.length; i++){
+            joinConfig.getTcpIpConfig().setEnabled(true).addMember(members[i]);
+        }
 
         final InterfacesConfig interfaceConfig = config.getNetworkConfig().getInterfaces();
         interfaceConfig.setEnabled(true).addInterface( interfaceS );
