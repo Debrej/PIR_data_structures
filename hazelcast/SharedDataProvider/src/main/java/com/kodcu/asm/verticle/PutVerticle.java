@@ -28,7 +28,7 @@ public class PutVerticle extends AbstractVerticle
     @Override
     public void start() throws NoSuchAlgorithmException {
 
-        final Random random = SecureRandom.getInstanceStrong();
+        final Random random = new SecureRandom();
         final SharedData sharedData = vertx.sharedData();
 
         vertx.setPeriodic(3000, h ->
