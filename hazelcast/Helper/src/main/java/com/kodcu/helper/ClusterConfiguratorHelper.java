@@ -31,12 +31,10 @@ public class ClusterConfiguratorHelper
         return config;
     }
 
-    public static Config getHazelcastConfigurationSetUp(String memberS, String interfaceS){
+    public static Config getHazelcastConfigurationSetUp(String[] members, String interfaceS){
         final Config config = new Config();
         final GroupConfig groupConfig = config.getGroupConfig();
         groupConfig.setName("dev").setPassword("dev-pass");
-
-        String[] members = memberS.split(" ");
 
         final JoinConfig joinConfig = config.getNetworkConfig().getJoin();
         joinConfig.getMulticastConfig().setEnabled(false);
