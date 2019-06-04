@@ -43,13 +43,9 @@ public class PutVerticle extends AbstractVerticle
                                 Arrays.asList(new StockExchangeData(KODCU_STOCK_NAME, random.nextInt(100)),
                                         new StockExchangeData(JUG_IST_STOCK_NAME, random.nextInt(100))));
 
-                        long start = System.nanoTime();
                         myAsyncMap.put(DEFAULT_ASYNC_MAP_KEY, stockExchange, resPut -> {
                             if (resPut.succeeded()) {
-                                long finish = System.nanoTime();
-                                long timeElapsed = finish - start;
                                 log.info("Added data into the map {} ", Json.encodePrettily(stockExchange));
-                                log.info("It took : {} nanoseconds ", timeElapsed);
                             } else {
                                 log.debug("Failed to add data {} ", Json.encodePrettily(stockExchange));
                             }
