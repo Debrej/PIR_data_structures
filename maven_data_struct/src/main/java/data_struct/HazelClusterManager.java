@@ -1,10 +1,12 @@
 package data_struct;
 
-
 import java.util.Map;
+import java.util.Set;
 
 import com.hazelcast.com.eclipsesource.json.Json;
 import com.hazelcast.config.Config;
+import com.hazelcast.core.Hazelcast;
+import com.hazelcast.core.HazelcastInstance;
 
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.AsyncResult;
@@ -32,20 +34,35 @@ public class HazelClusterManager {
         Vertx.clusteredVertx(options, res -> {
             if (res.succeeded()) {
                 Vertx vertx = res.result();
-                // test
-                SharedData mySharedData = vertx.sharedData();
-                LocalMap<String, String> map1 = mySharedData.getLocalMap("map1");
-                map1.put("foo", "bar"); // Strings are immutable so no need to copy
-                // fin de test
-                vertx.deployVerticle(MainVerticle.class.getName());
-                vertx.deployVerticle(ServerVerticle.class.getName());
+                vertx.deployVerticle(MessengerLauncher.class.getName());
+               
             } else {
                 // failed!
             }
         });
-        //Map<Object, Object> mapName = mgr.getSyncMap("mapName"); // shared distributed map
-        Map<String, String> mapName = mgr.getSyncMap("mapName");
+
+        
     }
+
+
     
    
 }
+
+// Vertx.clusteredVertx(options, res -> {
+//     if (res.succeeded()) {
+//         Vertx vertx = res.result();
+//         // test
+//         SharedData mySharedData = vertx.sharedData();
+//         LocalMap<String, String> map1 = mySharedData.getLocalMap("map1");
+//         map1.put("foo", "bar"); // Strings are immutable so no need to copy
+//         // fin de test
+//         vertx.deployVerticle(MessengerLauncher.class.getName());
+//         //vertx.deployVerticle(MainVerticle.class.getName());
+//         //vertx.deployVerticle(ServerVerticle.class.getName());
+//     } else {
+//         // failed!
+//     }
+// });
+
+// //Map<Object, Object> mapName = mgr.getSyncMap("mapName"); // shared distributed map
