@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Starter.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">shared-data-provider</a> &gt; <a href="index.source.html" class="el_package">com.kodcu.main</a> &gt; <span class="el_source">Starter.java</span></div><h1>Starter.java</h1><pre class="source lang-java linenums">package com.kodcu.main;
+
+import com.kodcu.helper.ClusterConfiguratorHelper;
+import com.kodcu.asm.verticle.PutVerticle;
+import com.kodcu.asm.verticle.PutFile;
+
+
+import io.vertx.core.Vertx;
+import io.vertx.core.VertxOptions;
+import io.vertx.core.spi.cluster.ClusterManager;
+import io.vertx.spi.cluster.hazelcast.HazelcastClusterManager;
+
+import lombok.extern.slf4j.Slf4j;
+
+import java.nio.file.*;
+
+/**
+ * @author hakdogan (hakdogan@kodcu.com)
+ * Created on 12.10.2018
+ */
+
+<span class="nc" id="L22">@Slf4j</span>
+<span class="nc" id="L23">public class Starter {</span>
+
+    /**
+     *
+     * @param args
+     */
+    public static void main(String[] args){
+
+        try {
+<span class="nc" id="L32">            String membersStr = new String(Files.readAllBytes(Paths.get(args[0])));</span>
+<span class="nc" id="L33">            String[] members = membersStr.split(&quot;\n&quot;);</span>
+<span class="nc" id="L34">            String keysStr = new String(Files.readAllBytes(Paths.get(args[2])));</span>
+<span class="nc" id="L35">            String[] keys = keysStr.split(&quot;\n&quot;);</span>
+
+<span class="nc" id="L37">            final ClusterManager mgr = new HazelcastClusterManager(ClusterConfiguratorHelper.getHazelcastConfigurationSetUp(members, args[1]));</span>
+<span class="nc" id="L38">            final VertxOptions options = new VertxOptions().setClusterManager(mgr);</span>
+<span class="nc" id="L39">            Vertx.clusteredVertx(options, cluster -&gt; {</span>
+<span class="nc bnc" id="L40" title="All 2 branches missed.">                if (cluster.succeeded()) {</span>
+<span class="nc" id="L41">                    cluster.result().deployVerticle(new PutFile(keys), res -&gt; {</span>
+<span class="nc bnc" id="L42" title="All 2 branches missed.">                        if (res.succeeded()) {</span>
+<span class="nc" id="L43">                            log.info(&quot;Deployment id is: {} &quot;, res.result());</span>
+                        } else {
+<span class="nc" id="L45">                            log.error(&quot;Deployment failed!&quot;, res.cause());</span>
+                        }
+<span class="nc" id="L47">                    });</span>
+                } else {
+<span class="nc" id="L49">                    log.error(&quot;Cluster up failed!&quot;, cluster.cause());</span>
+                }
+<span class="nc" id="L51">            });</span>
+        }
+<span class="nc" id="L53">        catch (java.io.IOException e) {</span>
+<span class="nc" id="L54">            e.printStackTrace();</span>
+<span class="nc" id="L55">        }</span>
+<span class="nc" id="L56">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

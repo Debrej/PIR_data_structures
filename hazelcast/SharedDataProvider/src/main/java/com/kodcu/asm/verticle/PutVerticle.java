@@ -30,7 +30,7 @@ public class PutVerticle extends AbstractVerticle
 
         final Random random = new SecureRandom();
         final SharedData sharedData = vertx.sharedData();
-
+        
         vertx.setPeriodic(3000, h ->
             sharedData.<String, StockExchange>getAsyncMap(DEFAULT_ASYNC_MAP_NAME, res -> {
                 if (res.succeeded()) {
