@@ -13,6 +13,10 @@ import io.vertx.ext.web.Router;
 import io.vertx.ext.web.RoutingContext;
 import lombok.extern.slf4j.Slf4j;
 
+import java.time.LocalDateTime;
+import java.io.*;
+
+
 import static com.kodcu.util.Constants.*;
 
 /**
@@ -26,6 +30,9 @@ public class ReaderVerticle extends AbstractVerticle
     private static final String TEMPLATE_FILE_NAME = "/index.ftl";
     private StockExchange stockExchange;
 
+    PrintWriter writer;
+    int nmbDataRead;
+    final int NMB =10;
     /**
      *
      * @param future
@@ -35,7 +42,16 @@ public class ReaderVerticle extends AbstractVerticle
         final Router router = Router.router(vertx);
         router.get("/").handler(this::welcomePage);
         router.get("/refresh").handler(this::refresh);
+        try{
+          writer = new PrintWriter("temps_lecture.txt");
+          nmbDataRead=0;
+        }catch(Exception e){
+
+        }
         HttpServerHelper.createAnHttpServer(vertx, router, config(), future);
+
+
+
     }
 
     /**
@@ -67,16 +83,38 @@ public class ReaderVerticle extends AbstractVerticle
 
     private void saveExchangeData(){
         SharedData sharedData = vertx.sharedData();
+        LocalDateTime dateTime = LocalDateTime.now();
+        log.debug("dateTime "+dateTime);
+
         sharedData.<String, StockExchange>getAsyncMap(DEFAULT_ASYNC_MAP_NAME, res -> {
-            if (res.succeeded()) {
+              if (res.succeeded()) {
                 AsyncMap<String, StockExchange> stockExchangeAsyncMap = res.result();
                 stockExchangeAsyncMap.get(DEFAULT_ASYNC_MAP_KEY, asyncDataResult -> {
                     stockExchange = asyncDataResult.result();
+
+                    LocalDateTime dateTime2 = LocalDateTime.now();
+                    log.debug("dateTime2 "+dateTime2);
+
                     log.debug("Stock Exchange object is {} ", Json.encodePrettily(stockExchange));
+                    String[] time = {String.valueOf(dateTime2.getMinute()-(dateTime.getMinute())), String.valueOf(dateTime2.getSecond()-(dateTime.getSecond())),String.valueOf(dateTime2.getNano()-(dateTime.getNano()))};
+                    log.debug("Data read in {}min {}s {}ns  ",time[0],time[1],time[2]);
+                    String line = String.join(":",String.valueOf(stockExchange),time[0],time[1],time[2]);
+
+                    if(nmbDataRead < NMB){
+
+                      writer.println(line);
+                      System.out.println("line envoyée"+nmbDataRead);
+                      nmbDataRead++;
+                    }else{
+                      writer.close();
+                      //vertx.close();
+                    }
+
                 });
             } else {
                 log.debug("Something went wrong when access to shared map!");
             }
+
         });
     }
 }
