@@ -27,6 +27,7 @@ X.X.X.X
 L'interface est l'adresse réseau de la machine sur laquelle le verticle est exécuté.
 
 Les clés de recherches doivent être sous cette forme, une par ligne :
+```
 xxxx
 xx
 x
@@ -34,6 +35,7 @@ x
 ```
 Pour modifier le nombre de fichiers dans le cluster, il suffit de modifier le nombre de clés dans le fichier SharedDateProvider/keys.txt.
 Pour cela, dans DataSharedProvider, utiliser la commande :
+```
 java createKeys <nombre de fichiers> 
 
 ```
@@ -54,6 +56,7 @@ pour la colone localhost, 1 fichier, image, Uniforme, Non Compressé, 20775, 1 :
 	-> ctrl+h pour remplacer les "." par des ","
 	-> On récupère la moyenne 
 	-> On copie-spécial_colle dans la case AJ8 (cocher number et pas formula)
+```
 
 ## Vie du projet
 
