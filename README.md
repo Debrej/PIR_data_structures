@@ -13,7 +13,7 @@ Ensuite, on ouvre deux terminaux dans hazelcast. On entre les commandes suivante
 java -jar SharedDataProvider/target/asyncPutVerticle.jar SharedDataProvider/members.txt <interface> SharedDataProvider/keys.txt
 -cluster
 
-java -jar SharedDataReader/target/asyncPutVerticle.jar SharedDataReader/members.txt <interface> SharedDataReader/keys.txt <nombre de Reader> -cluster
+java -jar SharedDataReader/target/asyncReadVerticle.jar SharedDataReader/members.txt <interface> SharedDataReader/keys.txt <nombre de Reader> -cluster
 ```
 
 Les adresses des membres doivent être sous cette forme, une par ligne :
