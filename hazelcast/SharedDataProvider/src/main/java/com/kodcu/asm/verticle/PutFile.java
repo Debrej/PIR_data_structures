@@ -27,6 +27,7 @@ import static com.kodcu.util.Constants.*;
 public class PutFile extends AbstractVerticle
 {
   private String[] keys;
+  private String NAME_FILE="image20775.jpeg";
 
   public PutFile(String[] keys){
     this.keys = keys;
@@ -39,7 +40,7 @@ public class PutFile extends AbstractVerticle
         final SharedData sharedData = vertx.sharedData();
         for(String k:keys){
           //final File fileExchange = new File("file_"+k+".txt");
-          File fileExchange=new File("image.jpeg");
+          File fileExchange=new File(NAME_FILE);
 
 
               sharedData.<String, File>getAsyncMap(DEFAULT_ASYNC_MAP_NAME, res -> {

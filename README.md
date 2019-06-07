@@ -38,10 +38,12 @@ java createKeys <nombre de fichiers>
 
 ```
 Pour DataSharedReader, laisser la clé "a" à chercher.
+Penser à bien changer le fichier placé dans le cluster.
 
 ```
 Exemple de test :
 pour la colone localhost, 1 fichier, image, Uniforme, Non Compressé, 20775, 1 :
+	-> On modifie le nom du fichier dans SharedDataProvider/PutFile.java : private String NAME_FILE="image20775.jpeg"
 	-> java createKeys 1
 	-> java -jar SharedDataProvider/target/asyncPutVerticle.jar SharedDataProvider/members.txt 127.0.0.1 SharedDataProvider/keys.txt
 -cluster
