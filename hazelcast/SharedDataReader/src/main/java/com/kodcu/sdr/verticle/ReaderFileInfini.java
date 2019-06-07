@@ -28,31 +28,24 @@ import static com.kodcu.util.Constants.*;
  */
 
 @Slf4j
-public class ReaderFile extends AbstractVerticle
+public class ReaderFileInfini extends AbstractVerticle
 {
     private static final String TEMPLATE_FILE_NAME = "/index.ftl";
     private File fileExchange;
 
-    PrintWriter writer;
-    final int nmbSearch=10;
     String[] keys;
     /**
      *
      * @param future
      */
 
-     public ReaderFile(String[] keys){
+     public ReaderFileInfini(String[] keys){
        this.keys=keys;
      }
+
     @Override
     public void start(Future<Void> future) {
-        try{
-          writer = new PrintWriter("temps_lecture.txt");
-
-        }catch(Exception e){
-
-        }
-        for(int i=0;i<nmbSearch;i++){
+        for(int i=0;i<10;i++){
           for(String key:keys){
             saveExchangeData(key);
           }
@@ -65,48 +58,15 @@ public class ReaderFile extends AbstractVerticle
         sharedData.<String, File>getAsyncMap(DEFAULT_ASYNC_MAP_NAME, res -> {
               if (res.succeeded()) {
                 AsyncMap<String, File> fileExchangeAsyncMap = res.result();
-                LocalDateTime dateTime = LocalDateTime.now();
 
                 fileExchangeAsyncMap.get(key, asyncDataResult -> {
                     fileExchange = asyncDataResult.result();
-
-                    LocalDateTime dateTime2 = LocalDateTime.now();
-
                     log.debug("Stock Exchange object is {} ", fileExchange);
-                    double time = computeTime(dateTime,dateTime2);
-                    log.debug("Data read in {}s  ",time);
-                    log.debug("Data length : "+fileExchange.length()+"octets");
-
-                    String line = String.join(":",String.valueOf(fileExchange),String.valueOf(fileExchange.length()),String.valueOf(time));
-
-                    writer.println(line);
-                    writer.flush();
-                    System.out.println("line envoyée");
-
                 });
             } else {
                 log.debug("Something went wrong when access to shared map!");
             }
 
         });
-    }
-
-    public double computeTime(LocalDateTime d1, LocalDateTime d2){
-      int s1=d1.getSecond();
-      int s2 =d2.getSecond();
-      int n1=d1.getNano();
-      int n2=d2.getNano();
-      double s,n;
-
-      if(n1>n2){
-        n=n2-n1+1E9;
-        s=s2-s1-1;
-
-      }else{
-        n=n2-n1;
-        s=s2-s1;
-      }
-      double t = s+(n/1E9);
-      return t;
     }
 }

@@ -7,12 +7,13 @@ Pour mettre en place le dataProvider et dataReader on se place dans le dossier h
 mvn clean install
 ```
 
-Ensuite, on ouvre deux terminaux, un dans SharedDataProvider et un dans SharedDataReader. On entre les commandes suivantes :
+Ensuite, on ouvre deux terminaux dans hazelcast. On entre les commandes suivantes :
 
 ```
-hazelcast/SharedDataProvider$ java -jar target/asyncPutVerticle.jar "<fichier des membres>" "<interface>" -cluster
+java -jar SharedDataProvider/target/asyncPutVerticle.jar SharedDataProvider/members.txt <interface> SharedDataProvider/keys.txt
+-cluster
 
-hazelcast/SharedDataReader$ java -jar target/asyncReaderVerticle.jar "<fichier des membres>" "<interface>" -cluster
+java -jar SharedDataReader/target/asyncPutVerticle.jar SharedDataReader/members.txt <interface> SharedDataReader/keys.txt <nombre de Reader> -cluster
 ```
 
 Les adresses des membres doivent être sous cette forme, une par ligne :
@@ -25,7 +26,18 @@ X.X.X.X
 
 L'interface est l'adresse réseau de la machine sur laquelle le verticle est exécuté.
 
-Enfin, on ouvre son navigateur à l'adresse _localhost:8080_ pour voir les échanges de données.
+Les clés de recherches doivent être sous cette forme, une par ligne :
+xxxx
+xx
+x
+
+```
+Pour modifier le nombre de fichiers dans le cluster, il suffit de modifier le nombre de clés dans le fichier SharedDateProvider/keys.txt.
+Pour cela, dans DataSharedProvider, utiliser la commande :
+java createKeys <nombre de fichiers> 
+
+```
+Pour DataSharedReader, laisser la clé "a" à chercher.
 
 ## Vie du projet
 
