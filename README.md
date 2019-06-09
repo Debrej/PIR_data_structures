@@ -49,7 +49,7 @@ pour la colone localhost, 1 fichier, image, Uniforme, Non Compressé, 20775, 1 :
 	-> java createKeys 1
 	-> java -jar SharedDataProvider/target/asyncPutVerticle.jar SharedDataProvider/members.txt 127.0.0.1 SharedDataProvider/keys.txt
 -cluster
-	-> java -jar SharedDataReader/target/asyncPutVerticle.jar SharedDataReader/members.txt 127.0.0.1 SharedDataReader/keys.txt 1 -cluster
+	-> java -jar SharedDataReader/target/asyncReadVerticle.jar SharedDataReader/members.txt 127.0.0.1 SharedDataReader/keys.txt 1 -cluster
 	-> On ouvre le fichier temps_lecture.txt
 	-> On copie-colle le tout dans le tableur
 	-> On sélectionne separated by Other ":"
