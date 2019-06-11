@@ -233,7 +233,7 @@ public class ConsulAsyncMap<K, V> extends ConsulMap<K, V> implements AsyncMap<K,
    * @param ttl             - ttl on entry in ms.
    * @return {@link Future} holding the result.
    */
-  private Future<Boolean> putValue(K k, V v, KeyValueOptions keyValueOptions, Optional<Long> ttl) {
+  public Future<Boolean> putValue(K k, V v, KeyValueOptions keyValueOptions, Optional<Long> ttl) {
     Long ttlValue = ttl.map(aLong -> ttl.get()).orElse(null);
     return asFutureString(k, v, appContext.getNodeId(), ttlValue)
       .compose(value -> putPlainValue(keyPath(k), value, keyValueOptions))
