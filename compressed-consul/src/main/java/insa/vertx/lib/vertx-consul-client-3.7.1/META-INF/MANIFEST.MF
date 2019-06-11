@@ -1,0 +1,33 @@
+Manifest-Version: 1.0
+Bundle-SymbolicName: vertx-consul-client
+Built-By: julien
+Bnd-LastModified: 1558528981418
+Specification-Title: vertx-consul-client
+Implementation-Vendor-Id: io.vertx
+Import-Package: io.netty.handler.codec.http;version="[4.1,5)",io.vertx
+ .codegen.annotations;version="[3.7,4)",io.vertx.core;version="[3.7,4)
+ ",io.vertx.core.buffer;version="[3.7,4)",io.vertx.core.http;version="
+ [3.7,4)",io.vertx.core.json;version="[3.7,4)",io.vertx.core.net;versi
+ on="[3.7,4)",io.vertx.ext.web.client;version="[3.7,4)"
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+Maven-Artifact-Id: vertx-consul-client
+Export-Package: io.vertx.ext.consul;uses:="io.vertx.codegen.annotation
+ s,io.vertx.core,io.vertx.core.buffer,io.vertx.core.http,io.vertx.core
+ .json,io.vertx.core.net,io.vertx.ext.web.client";version="3.7.1"
+Bundle-Name: vertx-consul-client
+Maven-Group-Id: io.vertx
+Implementation-Title: vertx-consul-client
+Implementation-Version: 3.7.1
+Specification-Vendor: Eclipse
+Bundle-ManifestVersion: 2
+Tool: Bnd-3.2.0.201605172007
+Implementation-Vendor: Eclipse
+Bundle-Version: 3.7.1
+Private-Package: examples,io.vertx.ext.consul.impl
+Maven-Version: 3.7.1
+Created-By: 1.8.0_181 (Oracle Corporation)
+Build-Jdk: 1.8.0_181
+Specification-Version: 3.7
+Implementation-URL: http://nexus.sonatype.org/oss-repository-hosting.h
+ tml/vertx-parent/vertx-ext/vertx-ext-parent/vertx-consul-client
+

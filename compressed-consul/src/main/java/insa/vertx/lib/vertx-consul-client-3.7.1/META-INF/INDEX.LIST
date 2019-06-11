@@ -1,0 +1,13 @@
+JarIndex-Version: 1.0
+
+vertx-consul-client-3.7.1.jar
+META-INF
+META-INF/maven
+META-INF/maven/io.vertx
+META-INF/maven/io.vertx/vertx-consul-client
+io
+io/vertx
+io/vertx/ext
+io/vertx/ext/consul
+io/vertx/ext/consul/impl
+
