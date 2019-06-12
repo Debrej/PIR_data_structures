@@ -40,37 +40,39 @@ public class ReaderFile extends AbstractVerticle
     public void start(Future<Void> future) {
         try{
           writer = new PrintWriter("temps_lecture.txt");
-
         }catch(Exception e){
 
         }
         for(int i=0;i<nmbSearch;i++){
-          for(String key:keys){
-            saveExchangeData(key);
+          for(String k:keys){
+              String[] key = k.split(",");
+              saveExchangeData(key);
           }
         }
     }
 
 
-    private void saveExchangeData(String key){
+    private void saveExchangeData(String[] key){
         SharedData sharedData = vertx.sharedData();
         sharedData.<String, byte[]>getAsyncMap(DEFAULT_ASYNC_MAP_NAME, res -> {
               if (res.succeeded()) {
                 AsyncMap<String, byte[]> fileExchangeAsyncMap = res.result();
                 LocalDateTime dateTime = LocalDateTime.now();
+                log.info("Date is {}", dateTime);
 
-                fileExchangeAsyncMap.get(key, asyncDataResult -> {
+                fileExchangeAsyncMap.get(key[0], asyncDataResult -> {
                     byte[] byteArray = asyncDataResult.result();
                     try {
-                        fileExchange = new File(key);
+                        fileExchange = new File("images/"+key[1]);
                         FileUtils.writeByteArrayToFile(fileExchange, byteArray);
 
                         LocalDateTime dateTime2 = LocalDateTime.now();
 
-                        log.debug("Stock Exchange object is {} ", fileExchange);
+                        log.info("Stock Exchange object is {} ", fileExchange);
+                        log.info("Date is {}", dateTime2);
                         double time = computeTime(dateTime, dateTime2);
-                        log.debug("Data read in {}s  ", time);
-                        log.debug("Data length : "+fileExchange.length()+"octets");
+                        log.info("Data read in {}s  ", time);
+                        log.info("Data length : "+fileExchange.length()+"octets");
 
                         String line = String.join(":",String.valueOf(fileExchange),String.valueOf(fileExchange.length()),String.valueOf(time));
 
@@ -89,22 +91,35 @@ public class ReaderFile extends AbstractVerticle
         });
     }
 
-    public double computeTime(LocalDateTime d1, LocalDateTime d2){
-      int s1=d1.getSecond();
-      int s2 =d2.getSecond();
-      int n1=d1.getNano();
-      int n2=d2.getNano();
-      double s,n;
+    private double computeTime(LocalDateTime d1, LocalDateTime d2){
+        int m1=d1.getMinute();
+        int m2=d2.getMinute();
+        int s1=d1.getSecond();
+        int s2 =d2.getSecond();
+        int n1=d1.getNano();
+        int n2=d2.getNano();
+        double m = 0, n = 0, s = 0;
 
-      if(n1>n2){
-        n=n2-n1+1E9;
-        s=s2-s1-1;
+        if(n1>n2){
+            n = n2-n1+1E9;
+            s = s-1;
+        }else{
+            n=n2-n1;
+        }
 
-      }else{
-        n=n2-n1;
-        s=s2-s1;
-      }
-      double t = s+(n/1E9);
-      return t;
+        if(s1>s2){
+            s=s+s2-s1+60;
+            m=m-1;
+        }else{
+            s=s+s2-s1;
+        }
+
+        if(m1>m2){
+            m=m+m2-m1+60;
+        }else{
+            m=m+m2-m1;
+        }
+
+        return m*60+s+(n/1E9);
     }
 }

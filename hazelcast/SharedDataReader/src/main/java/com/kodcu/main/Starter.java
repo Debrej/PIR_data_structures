@@ -81,9 +81,6 @@ public class Starter {
           catch (java.io.IOException e) {
               e.printStackTrace();
           }
-
-
-
       }
     }
 }

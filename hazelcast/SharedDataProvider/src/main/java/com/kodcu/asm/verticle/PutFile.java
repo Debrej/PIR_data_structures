@@ -20,7 +20,7 @@ import static com.kodcu.util.Constants.DEFAULT_ASYNC_MAP_NAME;
 public class PutFile extends AbstractVerticle
 {
   private String[] keys;
-  private String NAME_FILE="image20775.jpeg";
+  private String DIRECTORY="imagesSources/";
 
   public PutFile(String[] keys){
     this.keys = keys;
@@ -30,15 +30,15 @@ public class PutFile extends AbstractVerticle
     public void start() throws IOException {
         final SharedData sharedData = vertx.sharedData();
         for(String k:keys){
-          //final File fileExchange = new File("file_"+k+".txt");
-            File fileExchange = new File(NAME_FILE);
+            String[] key = k.split(",");
+            File fileExchange = new File(DIRECTORY+key[1]);
             byte[] byteArray = FileUtils.readFileToByteArray(fileExchange);
 
             sharedData.<String, byte[]>getAsyncMap(DEFAULT_ASYNC_MAP_NAME, res -> {
                   if (res.succeeded()) {
                       AsyncMap<String, byte[]> myAsyncMap = res.result();
                       myAsyncMap.get(k, asyncDataResult -> {
-                          myAsyncMap.put(k, byteArray, resPut -> {
+                          myAsyncMap.put(key[0], byteArray, resPut -> {
                               if (resPut.succeeded()) {
                                   log.info("Added data into the map {} ", String.valueOf(fileExchange));
                               } else {
