@@ -1,0 +1,3806 @@
+08:39:33.822 [main] DEBUG io.netty.util.internal.logging.InternalLoggerFactory - Using SLF4J as the default logging framework
+08:39:33.826 [main] DEBUG io.netty.util.ResourceLeakDetector - -Dio.netty.leakDetection.level: simple
+08:39:33.826 [main] DEBUG io.netty.util.ResourceLeakDetector - -Dio.netty.leakDetection.targetRecords: 4
+08:39:33.842 [main] DEBUG io.netty.channel.MultithreadEventLoopGroup - -Dio.netty.eventLoopThreads: 8
+08:39:33.859 [main] DEBUG io.netty.channel.nio.NioEventLoop - -Dio.netty.noKeySetOptimization: false
+08:39:33.859 [main] DEBUG io.netty.channel.nio.NioEventLoop - -Dio.netty.selectorAutoRebuildThreshold: 512
+08:39:33.875 [main] DEBUG io.netty.util.internal.PlatformDependent0 - -Dio.netty.noUnsafe: false
+08:39:33.875 [main] DEBUG io.netty.util.internal.PlatformDependent0 - Java version: 11
+08:39:33.877 [main] DEBUG io.netty.util.internal.PlatformDependent0 - sun.misc.Unsafe.theUnsafe: available
+08:39:33.877 [main] DEBUG io.netty.util.internal.PlatformDependent0 - sun.misc.Unsafe.copyMemory: available
+08:39:33.878 [main] DEBUG io.netty.util.internal.PlatformDependent0 - java.nio.Buffer.address: available
+08:39:33.880 [main] DEBUG io.netty.util.internal.PlatformDependent0 - direct buffer constructor: unavailable
+java.lang.UnsupportedOperationException: Reflective setAccessible(true) disabled
+	at io.netty.util.internal.ReflectionUtil.trySetAccessible(ReflectionUtil.java:31)
+	at io.netty.util.internal.PlatformDependent0$4.run(PlatformDependent0.java:224)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at io.netty.util.internal.PlatformDependent0.<clinit>(PlatformDependent0.java:218)
+	at io.netty.util.internal.PlatformDependent.isAndroid(PlatformDependent.java:213)
+	at io.netty.util.internal.PlatformDependent.<clinit>(PlatformDependent.java:81)
+	at io.netty.channel.nio.NioEventLoop.newTaskQueue(NioEventLoop.java:269)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.<init>(SingleThreadEventExecutor.java:165)
+	at io.netty.channel.SingleThreadEventLoop.<init>(SingleThreadEventLoop.java:58)
+	at io.netty.channel.nio.NioEventLoop.<init>(NioEventLoop.java:135)
+	at io.netty.channel.nio.NioEventLoopGroup.newChild(NioEventLoopGroup.java:127)
+	at io.netty.channel.nio.NioEventLoopGroup.newChild(NioEventLoopGroup.java:36)
+	at io.netty.util.concurrent.MultithreadEventExecutorGroup.<init>(MultithreadEventExecutorGroup.java:84)
+	at io.netty.util.concurrent.MultithreadEventExecutorGroup.<init>(MultithreadEventExecutorGroup.java:58)
+	at io.netty.util.concurrent.MultithreadEventExecutorGroup.<init>(MultithreadEventExecutorGroup.java:47)
+	at io.netty.channel.MultithreadEventLoopGroup.<init>(MultithreadEventLoopGroup.java:59)
+	at io.netty.channel.nio.NioEventLoopGroup.<init>(NioEventLoopGroup.java:77)
+	at io.netty.channel.nio.NioEventLoopGroup.<init>(NioEventLoopGroup.java:72)
+	at io.netty.channel.nio.NioEventLoopGroup.<init>(NioEventLoopGroup.java:59)
+	at io.vertx.core.net.impl.transport.Transport.eventLoopGroup(Transport.java:141)
+	at io.vertx.core.impl.VertxImpl.<init>(VertxImpl.java:145)
+	at io.vertx.core.impl.VertxImpl.clusteredVertx(VertxImpl.java:104)
+	at io.vertx.core.impl.VertxFactoryImpl.clusteredVertx(VertxFactoryImpl.java:41)
+	at io.vertx.core.Vertx.clusteredVertx(Vertx.java:97)
+	at com.kodcu.main.Starter.main(Starter.java:27)
+08:39:33.880 [main] DEBUG io.netty.util.internal.PlatformDependent0 - java.nio.Bits.unaligned: available, true
+08:39:33.881 [main] DEBUG io.netty.util.internal.PlatformDependent0 - jdk.internal.misc.Unsafe.allocateUninitializedArray(int): unavailable
+java.lang.IllegalAccessException: class io.netty.util.internal.PlatformDependent0$6 cannot access class jdk.internal.misc.Unsafe (in module java.base) because module java.base does not export jdk.internal.misc to unnamed module @2781e022
+	at java.base/jdk.internal.reflect.Reflection.newIllegalAccessException(Reflection.java:361)
+	at java.base/java.lang.reflect.AccessibleObject.checkAccess(AccessibleObject.java:591)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:558)
+	at io.netty.util.internal.PlatformDependent0$6.run(PlatformDependent0.java:334)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at io.netty.util.internal.PlatformDependent0.<clinit>(PlatformDependent0.java:325)
+	at io.netty.util.internal.PlatformDependent.isAndroid(PlatformDependent.java:213)
+	at io.netty.util.internal.PlatformDependent.<clinit>(PlatformDependent.java:81)
+	at io.netty.channel.nio.NioEventLoop.newTaskQueue(NioEventLoop.java:269)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.<init>(SingleThreadEventExecutor.java:165)
+	at io.netty.channel.SingleThreadEventLoop.<init>(SingleThreadEventLoop.java:58)
+	at io.netty.channel.nio.NioEventLoop.<init>(NioEventLoop.java:135)
+	at io.netty.channel.nio.NioEventLoopGroup.newChild(NioEventLoopGroup.java:127)
+	at io.netty.channel.nio.NioEventLoopGroup.newChild(NioEventLoopGroup.java:36)
+	at io.netty.util.concurrent.MultithreadEventExecutorGroup.<init>(MultithreadEventExecutorGroup.java:84)
+	at io.netty.util.concurrent.MultithreadEventExecutorGroup.<init>(MultithreadEventExecutorGroup.java:58)
+	at io.netty.util.concurrent.MultithreadEventExecutorGroup.<init>(MultithreadEventExecutorGroup.java:47)
+	at io.netty.channel.MultithreadEventLoopGroup.<init>(MultithreadEventLoopGroup.java:59)
+	at io.netty.channel.nio.NioEventLoopGroup.<init>(NioEventLoopGroup.java:77)
+	at io.netty.channel.nio.NioEventLoopGroup.<init>(NioEventLoopGroup.java:72)
+	at io.netty.channel.nio.NioEventLoopGroup.<init>(NioEventLoopGroup.java:59)
+	at io.vertx.core.net.impl.transport.Transport.eventLoopGroup(Transport.java:141)
+	at io.vertx.core.impl.VertxImpl.<init>(VertxImpl.java:145)
+	at io.vertx.core.impl.VertxImpl.clusteredVertx(VertxImpl.java:104)
+	at io.vertx.core.impl.VertxFactoryImpl.clusteredVertx(VertxFactoryImpl.java:41)
+	at io.vertx.core.Vertx.clusteredVertx(Vertx.java:97)
+	at com.kodcu.main.Starter.main(Starter.java:27)
+08:39:33.881 [main] DEBUG io.netty.util.internal.PlatformDependent0 - java.nio.DirectByteBuffer.<init>(long, int): unavailable
+08:39:33.881 [main] DEBUG io.netty.util.internal.PlatformDependent - sun.misc.Unsafe: available
+08:39:33.896 [main] DEBUG io.netty.util.internal.PlatformDependent - maxDirectMemory: 4177526784 bytes (maybe)
+08:39:33.897 [main] DEBUG io.netty.util.internal.PlatformDependent - -Dio.netty.tmpdir: /tmp (java.io.tmpdir)
+08:39:33.897 [main] DEBUG io.netty.util.internal.PlatformDependent - -Dio.netty.bitMode: 64 (sun.arch.data.model)
+08:39:33.898 [main] DEBUG io.netty.util.internal.PlatformDependent - -Dio.netty.maxDirectMemory: -1 bytes
+08:39:33.898 [main] DEBUG io.netty.util.internal.PlatformDependent - -Dio.netty.uninitializedArrayAllocationThreshold: -1
+08:39:33.899 [main] DEBUG io.netty.util.internal.CleanerJava9 - java.nio.ByteBuffer.cleaner(): available
+08:39:33.899 [main] DEBUG io.netty.util.internal.PlatformDependent - -Dio.netty.noPreferDirect: false
+08:39:33.904 [main] DEBUG io.netty.util.internal.PlatformDependent - org.jctools-core.MpscChunkedArrayQueue: available
+08:39:33.966 [main] DEBUG io.netty.resolver.dns.DefaultDnsServerAddressStreamProvider - Default DNS servers: [/127.0.0.53:53] (sun.net.dns.ResolverConfiguration)
+08:39:33.971 [main] DEBUG io.netty.util.NetUtil - -Djava.net.preferIPv4Stack: false
+08:39:33.972 [main] DEBUG io.netty.util.NetUtil - -Djava.net.preferIPv6Addresses: false
+08:39:33.973 [main] DEBUG io.netty.util.NetUtil - Loopback interface: lo (lo, 0:0:0:0:0:0:0:1%lo)
+08:39:33.974 [main] DEBUG io.netty.util.NetUtil - /proc/sys/net/core/somaxconn: 128
+08:39:34.012 [main] DEBUG io.netty.buffer.AbstractByteBuf - -Dio.netty.buffer.checkAccessible: true
+08:39:34.012 [main] DEBUG io.netty.buffer.AbstractByteBuf - -Dio.netty.buffer.checkBounds: true
+08:39:34.013 [main] DEBUG io.netty.util.ResourceLeakDetectorFactory - Loaded default ResourceLeakDetector: io.netty.util.ResourceLeakDetector@70be0a2b
+08:39:36.143 [vert.x-eventloop-thread-0] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.numHeapArenas: 8
+08:39:36.143 [vert.x-eventloop-thread-0] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.numDirectArenas: 8
+08:39:36.143 [vert.x-eventloop-thread-0] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.pageSize: 8192
+08:39:36.143 [vert.x-eventloop-thread-0] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.maxOrder: 11
+08:39:36.144 [vert.x-eventloop-thread-0] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.chunkSize: 16777216
+08:39:36.144 [vert.x-eventloop-thread-0] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.tinyCacheSize: 512
+08:39:36.144 [vert.x-eventloop-thread-0] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.smallCacheSize: 256
+08:39:36.144 [vert.x-eventloop-thread-0] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.normalCacheSize: 64
+08:39:36.144 [vert.x-eventloop-thread-0] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.maxCachedBufferCapacity: 32768
+08:39:36.144 [vert.x-eventloop-thread-0] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.cacheTrimInterval: 8192
+08:39:36.144 [vert.x-eventloop-thread-0] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.useCacheForAllThreads: true
+08:39:36.144 [vert.x-eventloop-thread-0] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.maxCachedByteBuffersPerChunk: 1023
+08:39:36.146 [vert.x-eventloop-thread-0] DEBUG io.netty.util.internal.InternalThreadLocalMap - -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024
+08:39:36.146 [vert.x-eventloop-thread-0] DEBUG io.netty.util.internal.InternalThreadLocalMap - -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096
+08:39:36.228 [vert.x-eventloop-thread-0] DEBUG io.netty.channel.DefaultChannelId - -Dio.netty.processId: 9056 (auto-detected)
+08:39:36.229 [vert.x-eventloop-thread-0] DEBUG io.netty.channel.DefaultChannelId - -Dio.netty.machineId: ac:fd:ce:ff:fe:e1:01:d6 (auto-detected)
+08:39:36.249 [vert.x-eventloop-thread-0] DEBUG io.netty.buffer.ByteBufUtil - -Dio.netty.allocator.type: pooled
+08:39:36.249 [vert.x-eventloop-thread-0] DEBUG io.netty.buffer.ByteBufUtil - -Dio.netty.threadLocalDirectBufferSize: 0
+08:39:36.249 [vert.x-eventloop-thread-0] DEBUG io.netty.buffer.ByteBufUtil - -Dio.netty.maxThreadLocalCharBufferSize: 16384
+08:39:36.727 [vert.x-eventloop-thread-0] INFO com.kodcu.main.Starter - Deployment id is: 23aedff2-1ca1-4fe6-b03b-124785e151e5 
+08:39:39.757 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:39:39",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 63
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 79
+  } ]
+} 
+08:39:42.742 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:39:42",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 39
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 97
+  } ]
+} 
+08:39:45.730 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:39:45",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 90
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 55
+  } ]
+} 
+08:39:48.735 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:39:48",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 55
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 51
+  } ]
+} 
+08:39:51.730 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:39:51",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 36
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 14
+  } ]
+} 
+08:39:54.730 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:39:54",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 66
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 82
+  } ]
+} 
+08:39:57.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:39:57",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 50
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 20
+  } ]
+} 
+08:40:00.735 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:40:0",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 19
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 20
+  } ]
+} 
+08:40:03.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:40:3",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 50
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 90
+  } ]
+} 
+08:40:06.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:40:6",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 98
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 93
+  } ]
+} 
+08:40:09.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:40:9",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 9
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 95
+  } ]
+} 
+08:40:12.735 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:40:12",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 33
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 68
+  } ]
+} 
+08:40:15.730 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:40:15",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 1
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 18
+  } ]
+} 
+08:40:18.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:40:18",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 92
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 60
+  } ]
+} 
+08:40:21.730 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:40:21",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 91
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 62
+  } ]
+} 
+08:40:24.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:40:24",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 69
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 25
+  } ]
+} 
+08:40:27.733 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:40:27",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 96
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 67
+  } ]
+} 
+08:40:30.733 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:40:30",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 81
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 82
+  } ]
+} 
+08:40:33.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:40:33",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 63
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 58
+  } ]
+} 
+08:40:36.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:40:36",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 81
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 88
+  } ]
+} 
+08:40:39.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:40:39",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 52
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 62
+  } ]
+} 
+08:40:42.729 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:40:42",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 85
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 98
+  } ]
+} 
+08:40:45.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:40:45",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 7
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 97
+  } ]
+} 
+08:40:48.733 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:40:48",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 23
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 80
+  } ]
+} 
+08:40:51.730 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:40:51",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 20
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 48
+  } ]
+} 
+08:40:54.736 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:40:54",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 33
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 87
+  } ]
+} 
+08:40:57.729 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:40:57",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 14
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 50
+  } ]
+} 
+08:41:00.730 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:41:0",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 88
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 56
+  } ]
+} 
+08:41:03.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:41:3",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 42
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 50
+  } ]
+} 
+08:41:06.730 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:41:6",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 13
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 11
+  } ]
+} 
+08:41:09.729 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:41:9",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 76
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 52
+  } ]
+} 
+08:41:12.733 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:41:12",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 68
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 70
+  } ]
+} 
+08:41:15.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:41:15",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 56
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 25
+  } ]
+} 
+08:41:18.729 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:41:18",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 37
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 16
+  } ]
+} 
+08:41:21.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:41:21",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 5
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 71
+  } ]
+} 
+08:41:24.729 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:41:24",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 40
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 54
+  } ]
+} 
+08:41:27.729 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:41:27",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 38
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 44
+  } ]
+} 
+08:41:30.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:41:30",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 82
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 33
+  } ]
+} 
+08:41:33.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:41:33",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 47
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 16
+  } ]
+} 
+08:41:36.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:41:36",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 4
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 27
+  } ]
+} 
+08:41:39.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:41:39",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 16
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 78
+  } ]
+} 
+08:41:42.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:41:42",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 8
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 82
+  } ]
+} 
+08:41:45.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:41:45",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 56
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 89
+  } ]
+} 
+08:41:48.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:41:48",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 81
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 41
+  } ]
+} 
+08:41:51.734 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:41:51",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 89
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 16
+  } ]
+} 
+08:41:54.730 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:41:54",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 91
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 97
+  } ]
+} 
+08:41:57.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:41:57",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 55
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 2
+  } ]
+} 
+08:42:00.733 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:42:0",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 86
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 47
+  } ]
+} 
+08:42:03.733 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:42:3",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 9
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 35
+  } ]
+} 
+08:42:06.730 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:42:6",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 2
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 7
+  } ]
+} 
+08:42:09.730 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:42:9",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 51
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 33
+  } ]
+} 
+08:42:12.729 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:42:12",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 52
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 9
+  } ]
+} 
+08:42:15.729 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:42:15",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 15
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 28
+  } ]
+} 
+08:42:18.730 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:42:18",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 88
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 53
+  } ]
+} 
+08:42:21.728 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:42:21",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 42
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 72
+  } ]
+} 
+08:42:24.729 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:42:24",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 34
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 0
+  } ]
+} 
+08:42:27.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:42:27",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 88
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 33
+  } ]
+} 
+08:42:30.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:42:30",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 89
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 24
+  } ]
+} 
+08:42:33.733 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:42:33",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 65
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 49
+  } ]
+} 
+08:42:36.729 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:42:36",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 54
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 2
+  } ]
+} 
+08:42:39.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:42:39",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 42
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 19
+  } ]
+} 
+08:42:42.736 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:42:42",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 49
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 56
+  } ]
+} 
+08:42:45.729 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:42:45",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 53
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 7
+  } ]
+} 
+08:42:48.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:42:48",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 63
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 39
+  } ]
+} 
+08:42:51.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:42:51",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 99
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 50
+  } ]
+} 
+08:42:54.729 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:42:54",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 57
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 0
+  } ]
+} 
+08:42:57.734 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:42:57",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 96
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 17
+  } ]
+} 
+08:43:00.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:43:0",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 22
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 91
+  } ]
+} 
+08:43:03.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:43:3",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 34
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 65
+  } ]
+} 
+08:43:06.733 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:43:6",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 43
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 6
+  } ]
+} 
+08:43:09.730 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:43:9",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 55
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 4
+  } ]
+} 
+08:43:12.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:43:12",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 11
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 25
+  } ]
+} 
+08:43:15.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:43:15",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 30
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 52
+  } ]
+} 
+08:43:18.730 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:43:18",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 72
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 24
+  } ]
+} 
+08:43:21.729 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:43:21",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 10
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 98
+  } ]
+} 
+08:43:24.733 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:43:24",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 35
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 61
+  } ]
+} 
+08:43:27.735 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:43:27",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 63
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 48
+  } ]
+} 
+08:43:30.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:43:30",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 18
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 88
+  } ]
+} 
+08:43:33.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:43:33",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 60
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 53
+  } ]
+} 
+08:43:36.734 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:43:36",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 86
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 19
+  } ]
+} 
+08:43:39.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:43:39",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 93
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 18
+  } ]
+} 
+08:43:42.735 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:43:42",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 1
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 19
+  } ]
+} 
+08:43:45.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:43:45",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 56
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 94
+  } ]
+} 
+08:43:48.734 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:43:48",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 42
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 77
+  } ]
+} 
+08:43:51.733 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:43:51",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 56
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 32
+  } ]
+} 
+08:43:54.733 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:43:54",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 88
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 20
+  } ]
+} 
+08:43:57.733 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:43:57",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 29
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 77
+  } ]
+} 
+08:44:00.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:44:0",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 25
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 57
+  } ]
+} 
+08:44:03.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:44:3",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 53
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 37
+  } ]
+} 
+08:44:06.733 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:44:6",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 49
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 83
+  } ]
+} 
+08:44:09.733 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:44:9",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 44
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 57
+  } ]
+} 
+08:44:12.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:44:12",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 82
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 79
+  } ]
+} 
+08:44:15.735 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:44:15",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 32
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 48
+  } ]
+} 
+08:44:18.733 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:44:18",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 88
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 81
+  } ]
+} 
+08:44:21.734 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:44:21",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 85
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 59
+  } ]
+} 
+08:44:24.734 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:44:24",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 77
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 58
+  } ]
+} 
+08:44:27.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:44:27",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 24
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 76
+  } ]
+} 
+08:44:30.734 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:44:30",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 3
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 55
+  } ]
+} 
+08:44:33.733 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:44:33",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 55
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 7
+  } ]
+} 
+08:44:36.733 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:44:36",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 28
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 2
+  } ]
+} 
+08:44:39.733 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:44:39",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 35
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 37
+  } ]
+} 
+08:44:42.728 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:44:42",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 27
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 75
+  } ]
+} 
+08:44:45.728 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:44:45",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 41
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 90
+  } ]
+} 
+08:44:48.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:44:48",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 64
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 69
+  } ]
+} 
+08:44:51.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:44:51",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 75
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 28
+  } ]
+} 
+08:44:54.728 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:44:54",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 18
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 61
+  } ]
+} 
+08:44:57.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:44:57",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 18
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 48
+  } ]
+} 
+08:45:00.729 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:45:0",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 25
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 7
+  } ]
+} 
+08:45:03.729 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:45:3",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 97
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 42
+  } ]
+} 
+08:45:06.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:45:6",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 2
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 27
+  } ]
+} 
+08:45:09.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:45:9",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 74
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 86
+  } ]
+} 
+08:45:12.733 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:45:12",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 87
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 22
+  } ]
+} 
+08:45:15.733 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:45:15",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 93
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 62
+  } ]
+} 
+08:45:18.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:45:18",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 55
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 15
+  } ]
+} 
+08:45:21.733 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:45:21",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 25
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 99
+  } ]
+} 
+08:45:24.734 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:45:24",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 18
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 51
+  } ]
+} 
+08:45:27.730 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:45:27",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 5
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 32
+  } ]
+} 
+08:45:30.730 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:45:30",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 54
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 40
+  } ]
+} 
+08:45:33.733 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:45:33",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 30
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 51
+  } ]
+} 
+08:45:36.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:45:36",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 49
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 15
+  } ]
+} 
+08:45:39.733 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:45:39",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 66
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 84
+  } ]
+} 
+08:45:42.735 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:45:42",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 56
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 87
+  } ]
+} 
+08:45:45.734 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:45:45",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 7
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 32
+  } ]
+} 
+08:45:48.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:45:48",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 25
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 56
+  } ]
+} 
+08:45:51.738 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:45:51",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 14
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 62
+  } ]
+} 
+08:45:54.735 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:45:54",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 27
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 22
+  } ]
+} 
+08:45:57.733 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:45:57",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 45
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 27
+  } ]
+} 
+08:46:00.737 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:46:0",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 10
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 59
+  } ]
+} 
+08:46:03.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:46:3",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 22
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 3
+  } ]
+} 
+08:46:06.733 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:46:6",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 39
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 64
+  } ]
+} 
+08:46:09.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:46:9",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 76
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 35
+  } ]
+} 
+08:46:12.730 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:46:12",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 37
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 79
+  } ]
+} 
+08:46:15.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:46:15",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 19
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 61
+  } ]
+} 
+08:46:18.733 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:46:18",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 40
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 0
+  } ]
+} 
+08:46:21.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:46:21",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 96
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 58
+  } ]
+} 
+08:46:24.730 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:46:24",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 87
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 73
+  } ]
+} 
+08:46:27.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:46:27",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 41
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 33
+  } ]
+} 
+08:46:30.730 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:46:30",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 10
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 78
+  } ]
+} 
+08:46:33.728 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:46:33",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 63
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 48
+  } ]
+} 
+08:46:36.728 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:46:36",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 23
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 85
+  } ]
+} 
+08:46:39.730 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:46:39",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 39
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 85
+  } ]
+} 
+08:46:42.733 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:46:42",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 88
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 35
+  } ]
+} 
+08:46:45.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:46:45",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 5
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 64
+  } ]
+} 
+08:46:48.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:46:48",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 0
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 84
+  } ]
+} 
+08:46:51.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:46:51",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 82
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 54
+  } ]
+} 
+08:46:54.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:46:54",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 9
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 98
+  } ]
+} 
+08:46:57.733 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:46:57",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 99
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 46
+  } ]
+} 
+08:47:00.733 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:47:0",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 23
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 59
+  } ]
+} 
+08:47:03.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:47:3",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 85
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 53
+  } ]
+} 
+08:47:06.733 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:47:6",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 77
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 69
+  } ]
+} 
+08:47:09.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:47:9",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 2
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 44
+  } ]
+} 
+08:47:12.733 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:47:12",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 39
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 20
+  } ]
+} 
+08:47:15.730 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:47:15",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 27
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 44
+  } ]
+} 
+08:47:18.733 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:47:18",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 99
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 36
+  } ]
+} 
+08:47:21.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:47:21",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 24
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 69
+  } ]
+} 
+08:47:24.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:47:24",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 20
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 7
+  } ]
+} 
+08:47:27.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:47:27",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 92
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 65
+  } ]
+} 
+08:47:30.730 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:47:30",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 17
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 19
+  } ]
+} 
+08:47:33.729 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:47:33",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 64
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 99
+  } ]
+} 
+08:47:36.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:47:36",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 79
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 26
+  } ]
+} 
+08:47:39.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:47:39",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 79
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 47
+  } ]
+} 
+08:47:42.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:47:42",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 12
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 78
+  } ]
+} 
+08:47:45.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:47:45",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 58
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 32
+  } ]
+} 
+08:47:48.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:47:48",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 1
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 11
+  } ]
+} 
+08:47:51.733 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:47:51",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 99
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 40
+  } ]
+} 
+08:47:54.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:47:54",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 77
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 64
+  } ]
+} 
+08:47:57.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:47:57",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 10
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 46
+  } ]
+} 
+08:48:00.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:48:0",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 16
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 22
+  } ]
+} 
+08:48:03.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:48:3",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 18
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 47
+  } ]
+} 
+08:48:06.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:48:6",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 82
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 23
+  } ]
+} 
+08:48:09.733 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:48:9",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 17
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 9
+  } ]
+} 
+08:48:12.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:48:12",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 22
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 21
+  } ]
+} 
+08:48:15.733 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:48:15",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 66
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 32
+  } ]
+} 
+08:48:18.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:48:18",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 67
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 43
+  } ]
+} 
+08:48:21.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:48:21",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 35
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 86
+  } ]
+} 
+08:48:24.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:48:24",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 49
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 1
+  } ]
+} 
+08:48:27.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:48:27",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 0
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 5
+  } ]
+} 
+08:48:30.730 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:48:30",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 49
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 73
+  } ]
+} 
+08:48:33.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:48:33",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 33
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 13
+  } ]
+} 
+08:48:36.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:48:36",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 54
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 15
+  } ]
+} 
+08:48:39.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:48:39",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 35
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 29
+  } ]
+} 
+08:48:42.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:48:42",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 65
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 43
+  } ]
+} 
+08:48:45.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:48:45",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 27
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 16
+  } ]
+} 
+08:48:48.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:48:48",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 20
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 14
+  } ]
+} 
+08:48:51.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:48:51",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 27
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 48
+  } ]
+} 
+08:48:54.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:48:54",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 18
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 25
+  } ]
+} 
+08:48:57.733 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:48:57",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 83
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 37
+  } ]
+} 
+08:49:00.733 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:49:0",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 74
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 57
+  } ]
+} 
+08:49:03.733 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:49:3",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 47
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 64
+  } ]
+} 
+08:49:06.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:49:6",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 34
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 2
+  } ]
+} 
+08:49:09.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:49:9",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 65
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 23
+  } ]
+} 
+08:49:12.733 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:49:12",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 57
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 64
+  } ]
+} 
+08:49:15.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:49:15",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 91
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 88
+  } ]
+} 
+08:49:18.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:49:18",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 95
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 57
+  } ]
+} 
+08:49:21.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:49:21",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 18
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 67
+  } ]
+} 
+08:49:24.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:49:24",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 60
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 29
+  } ]
+} 
+08:49:27.730 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:49:27",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 95
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 84
+  } ]
+} 
+08:49:30.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:49:30",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 58
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 62
+  } ]
+} 
+08:49:33.733 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:49:33",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 24
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 43
+  } ]
+} 
+08:49:36.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:49:36",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 31
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 83
+  } ]
+} 
+08:49:39.730 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:49:39",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 40
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 71
+  } ]
+} 
+08:49:42.729 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:49:42",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 47
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 95
+  } ]
+} 
+08:49:45.733 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:49:45",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 55
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 10
+  } ]
+} 
+08:49:48.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:49:48",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 4
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 62
+  } ]
+} 
+08:49:51.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:49:51",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 86
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 93
+  } ]
+} 
+08:49:54.733 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:49:54",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 61
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 92
+  } ]
+} 
+08:49:57.733 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:49:57",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 27
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 88
+  } ]
+} 
+08:50:00.733 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:50:0",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 62
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 72
+  } ]
+} 
+08:50:03.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:50:3",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 98
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 4
+  } ]
+} 
+08:50:06.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:50:6",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 65
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 56
+  } ]
+} 
+08:50:09.730 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:50:9",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 62
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 54
+  } ]
+} 
+08:50:12.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:50:12",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 91
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 9
+  } ]
+} 
+08:50:15.730 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:50:15",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 81
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 78
+  } ]
+} 
+08:50:18.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:50:18",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 50
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 96
+  } ]
+} 
+08:50:21.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:50:21",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 72
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 2
+  } ]
+} 
+08:50:24.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:50:24",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 56
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 16
+  } ]
+} 
+08:50:27.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:50:27",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 98
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 46
+  } ]
+} 
+08:50:30.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:50:30",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 72
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 21
+  } ]
+} 
+08:50:33.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:50:33",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 5
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 10
+  } ]
+} 
+08:50:36.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:50:36",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 81
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 44
+  } ]
+} 
+08:50:39.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:50:39",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 79
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 59
+  } ]
+} 
+08:50:42.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:50:42",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 52
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 73
+  } ]
+} 
+08:50:45.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:50:45",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 25
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 3
+  } ]
+} 
+08:50:48.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:50:48",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 37
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 36
+  } ]
+} 
+08:50:51.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:50:51",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 76
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 27
+  } ]
+} 
+08:50:54.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:50:54",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 28
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 18
+  } ]
+} 
+08:50:57.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:50:57",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 93
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 33
+  } ]
+} 
+08:51:00.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:51:0",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 3
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 81
+  } ]
+} 
+08:51:03.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:51:3",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 99
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 15
+  } ]
+} 
+08:51:06.728 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:51:6",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 84
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 45
+  } ]
+} 
+08:51:09.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:51:9",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 38
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 35
+  } ]
+} 
+08:51:12.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:51:12",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 21
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 73
+  } ]
+} 
+08:51:15.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:51:15",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 80
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 57
+  } ]
+} 
+08:51:18.730 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:51:18",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 99
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 77
+  } ]
+} 
+08:51:21.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:51:21",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 61
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 12
+  } ]
+} 
+08:51:24.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:51:24",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 17
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 74
+  } ]
+} 
+08:51:27.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:51:27",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 5
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 78
+  } ]
+} 
+08:51:30.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:51:30",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 33
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 48
+  } ]
+} 
+08:51:33.730 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:51:33",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 64
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 19
+  } ]
+} 
+08:51:36.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:51:36",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 88
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 30
+  } ]
+} 
+08:51:39.729 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:51:39",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 92
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 66
+  } ]
+} 
+08:51:42.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:51:42",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 47
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 60
+  } ]
+} 
+08:51:45.730 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:51:45",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 85
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 66
+  } ]
+} 
+08:51:48.730 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:51:48",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 45
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 32
+  } ]
+} 
+08:51:51.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:51:51",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 18
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 84
+  } ]
+} 
+08:51:54.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:51:54",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 81
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 19
+  } ]
+} 
+08:51:57.733 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:51:57",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 12
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 25
+  } ]
+} 
+08:52:00.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:52:0",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 17
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 77
+  } ]
+} 
+08:52:03.730 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:52:3",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 38
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 22
+  } ]
+} 
+08:52:06.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:52:6",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 84
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 0
+  } ]
+} 
+08:52:09.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:52:9",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 71
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 43
+  } ]
+} 
+08:52:12.729 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:52:12",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 74
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 39
+  } ]
+} 
+08:52:15.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:52:15",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 59
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 93
+  } ]
+} 
+08:52:18.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:52:18",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 1
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 94
+  } ]
+} 
+08:52:21.733 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:52:21",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 41
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 38
+  } ]
+} 
+08:52:24.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:52:24",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 83
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 83
+  } ]
+} 
+08:52:27.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:52:27",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 17
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 21
+  } ]
+} 
+08:52:30.730 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:52:30",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 9
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 33
+  } ]
+} 
+08:52:33.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:52:33",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 52
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 52
+  } ]
+} 
+08:52:36.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:52:36",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 47
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 4
+  } ]
+} 
+08:52:39.730 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:52:39",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 74
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 99
+  } ]
+} 
+08:52:42.729 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:52:42",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 89
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 37
+  } ]
+} 
+08:52:45.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:52:45",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 94
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 65
+  } ]
+} 
+08:52:48.729 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:52:48",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 71
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 13
+  } ]
+} 
+08:52:51.730 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:52:51",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 93
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 56
+  } ]
+} 
+08:52:54.729 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:52:54",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 40
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 22
+  } ]
+} 
+08:52:57.729 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:52:57",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 77
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 3
+  } ]
+} 
+08:53:00.728 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:53:0",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 19
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 15
+  } ]
+} 
+08:53:03.728 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:53:3",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 52
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 23
+  } ]
+} 
+08:53:06.728 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:53:6",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 92
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 73
+  } ]
+} 
+08:53:09.728 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:53:9",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 42
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 0
+  } ]
+} 
+08:53:12.729 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:53:12",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 35
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 46
+  } ]
+} 
+08:53:15.730 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:53:15",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 70
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 51
+  } ]
+} 
+08:53:18.728 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:53:18",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 0
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 64
+  } ]
+} 
+08:53:21.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:53:21",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 86
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 73
+  } ]
+} 
+08:53:24.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:53:24",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 10
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 25
+  } ]
+} 
+08:53:27.730 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:53:27",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 41
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 45
+  } ]
+} 
+08:53:30.734 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:53:30",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 63
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 22
+  } ]
+} 
+08:53:33.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:53:33",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 76
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 35
+  } ]
+} 
+08:53:36.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:53:36",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 90
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 8
+  } ]
+} 
+08:53:39.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:53:39",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 84
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 21
+  } ]
+} 
+08:53:42.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:53:42",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 65
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 84
+  } ]
+} 
+08:53:45.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:53:45",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 75
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 19
+  } ]
+} 
+08:53:48.728 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:53:48",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 42
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 75
+  } ]
+} 
+08:53:51.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:53:51",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 47
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 36
+  } ]
+} 
+08:53:54.729 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:53:54",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 2
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 45
+  } ]
+} 
+08:53:57.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:53:57",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 0
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 48
+  } ]
+} 
+08:54:00.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:54:0",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 10
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 52
+  } ]
+} 
+08:54:03.730 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:54:3",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 14
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 52
+  } ]
+} 
+08:54:06.730 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:54:6",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 14
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 20
+  } ]
+} 
+08:54:09.730 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:54:9",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 69
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 69
+  } ]
+} 
+08:54:12.730 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:54:12",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 23
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 32
+  } ]
+} 
+08:54:15.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:54:15",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 1
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 82
+  } ]
+} 
+08:54:18.730 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:54:18",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 57
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 19
+  } ]
+} 
+08:54:21.730 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:54:21",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 51
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 84
+  } ]
+} 
+08:54:24.733 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:54:24",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 35
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 15
+  } ]
+} 
+08:54:27.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:54:27",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 43
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 64
+  } ]
+} 
+08:54:30.730 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:54:30",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 61
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 21
+  } ]
+} 
+08:54:33.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:54:33",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 60
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 44
+  } ]
+} 
+08:54:36.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:54:36",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 33
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 96
+  } ]
+} 
+08:54:39.730 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:54:39",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 88
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 84
+  } ]
+} 
+08:54:42.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:54:42",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 5
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 42
+  } ]
+} 
+08:54:45.730 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:54:45",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 21
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 47
+  } ]
+} 
+08:54:48.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:54:48",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 73
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 98
+  } ]
+} 
+08:54:51.729 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:54:51",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 41
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 73
+  } ]
+} 
+08:54:54.730 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:54:54",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 97
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 88
+  } ]
+} 
+08:54:57.733 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:54:57",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 80
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 42
+  } ]
+} 
+08:55:00.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:55:0",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 81
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 68
+  } ]
+} 
+08:55:03.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:55:3",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 73
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 43
+  } ]
+} 
+08:55:06.733 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:55:6",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 95
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 44
+  } ]
+} 
+08:55:09.730 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:55:9",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 79
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 50
+  } ]
+} 
+08:55:12.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:55:12",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 43
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 36
+  } ]
+} 
+08:55:15.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:55:15",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 55
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 23
+  } ]
+} 
+08:55:18.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:55:18",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 58
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 15
+  } ]
+} 
+08:55:21.730 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:55:21",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 40
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 68
+  } ]
+} 
+08:55:24.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:55:24",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 38
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 5
+  } ]
+} 
+08:55:27.730 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:55:27",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 79
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 90
+  } ]
+} 
+08:55:30.733 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:55:30",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 29
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 19
+  } ]
+} 
+08:55:33.730 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:55:33",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 53
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 67
+  } ]
+} 
+08:55:36.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:55:36",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 69
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 66
+  } ]
+} 
+08:55:39.730 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:55:39",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 97
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 73
+  } ]
+} 
+08:55:42.730 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:55:42",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 74
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 62
+  } ]
+} 
+08:55:45.730 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:55:45",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 94
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 29
+  } ]
+} 
+08:55:48.730 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:55:48",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 10
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 14
+  } ]
+} 
+08:55:51.730 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:55:51",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 13
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 62
+  } ]
+} 
+08:55:54.729 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:55:54",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 77
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 78
+  } ]
+} 
+08:55:57.730 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:55:57",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 51
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 1
+  } ]
+} 
+08:56:00.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:56:0",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 74
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 82
+  } ]
+} 
+08:56:03.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:56:3",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 70
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 87
+  } ]
+} 
+08:56:06.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:56:6",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 25
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 80
+  } ]
+} 
+08:56:09.730 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:56:9",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 56
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 71
+  } ]
+} 
+08:56:12.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:56:12",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 89
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 99
+  } ]
+} 
+08:56:15.729 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:56:15",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 30
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 22
+  } ]
+} 
+08:56:18.728 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:56:18",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 55
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 75
+  } ]
+} 
+08:56:21.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:56:21",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 84
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 81
+  } ]
+} 
+08:56:24.730 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:56:24",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 62
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 35
+  } ]
+} 
+08:56:27.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:56:27",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 90
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 14
+  } ]
+} 
+08:56:30.729 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:56:30",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 90
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 18
+  } ]
+} 
+08:56:33.729 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:56:33",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 98
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 93
+  } ]
+} 
+08:56:36.730 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:56:36",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 99
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 99
+  } ]
+} 
+08:56:39.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:56:39",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 13
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 34
+  } ]
+} 
+08:56:42.729 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:56:42",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 90
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 99
+  } ]
+} 
+08:56:45.728 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:56:45",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 36
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 48
+  } ]
+} 
+08:56:48.730 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:56:48",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 95
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 5
+  } ]
+} 
+08:56:51.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:56:51",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 64
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 29
+  } ]
+} 
+08:56:54.730 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:56:54",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 77
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 73
+  } ]
+} 
+08:56:57.730 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:56:57",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 54
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 58
+  } ]
+} 
+08:57:00.730 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:57:0",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 95
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 18
+  } ]
+} 
+08:57:03.730 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:57:3",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 56
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 86
+  } ]
+} 
+08:57:06.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:57:6",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 5
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 30
+  } ]
+} 
+08:57:09.730 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:57:9",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 64
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 96
+  } ]
+} 
+08:57:12.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:57:12",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 45
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 27
+  } ]
+} 
+08:57:15.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:57:15",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 28
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 40
+  } ]
+} 
+08:57:18.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:57:18",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 5
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 19
+  } ]
+} 
+08:57:21.730 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:57:21",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 62
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 41
+  } ]
+} 
+08:57:24.729 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:57:24",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 32
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 60
+  } ]
+} 
+08:57:27.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:57:27",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 29
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 39
+  } ]
+} 
+08:57:30.731 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:57:30",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 25
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 66
+  } ]
+} 
+08:57:33.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:57:33",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 64
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 11
+  } ]
+} 
+08:57:36.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:57:36",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 66
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 0
+  } ]
+} 
+08:57:39.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:57:39",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 22
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 77
+  } ]
+} 
+08:57:42.730 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:57:42",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 70
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 74
+  } ]
+} 
+08:57:45.730 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:57:45",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 58
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 90
+  } ]
+} 
+08:57:48.730 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:57:48",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 33
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 47
+  } ]
+} 
+08:57:51.730 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:57:51",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 92
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 4
+  } ]
+} 
+08:57:54.730 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:57:54",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 26
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 24
+  } ]
+} 
+08:57:57.732 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:57:57",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 59
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 62
+  } ]
+} 
+08:58:00.733 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:58:0",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 73
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 58
+  } ]
+} 
+08:58:03.730 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:58:3",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 73
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 32
+  } ]
+} 
+08:58:07.269 [vert.x-eventloop-thread-1] INFO com.kodcu.asm.verticle.PutVerticle - Added data into the map {
+  "time" : "8:58:6",
+  "dataList" : [ {
+    "name" : "kodcu.com",
+    "rate" : 65
+  }, {
+    "name" : "JUG Istanbul",
+    "rate" : 97
+  } ]
+} 

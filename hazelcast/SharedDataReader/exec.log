@@ -1,0 +1,148 @@
+09:38:05.644 [main] DEBUG io.netty.util.internal.logging.InternalLoggerFactory - Using SLF4J as the default logging framework
+09:38:05.647 [main] DEBUG io.netty.util.ResourceLeakDetector - -Dio.netty.leakDetection.level: simple
+09:38:05.647 [main] DEBUG io.netty.util.ResourceLeakDetector - -Dio.netty.leakDetection.targetRecords: 4
+09:38:05.662 [main] DEBUG io.netty.channel.MultithreadEventLoopGroup - -Dio.netty.eventLoopThreads: 8
+09:38:05.679 [main] DEBUG io.netty.channel.nio.NioEventLoop - -Dio.netty.noKeySetOptimization: false
+09:38:05.679 [main] DEBUG io.netty.channel.nio.NioEventLoop - -Dio.netty.selectorAutoRebuildThreshold: 512
+09:38:05.696 [main] DEBUG io.netty.util.internal.PlatformDependent0 - -Dio.netty.noUnsafe: false
+09:38:05.696 [main] DEBUG io.netty.util.internal.PlatformDependent0 - Java version: 11
+09:38:05.697 [main] DEBUG io.netty.util.internal.PlatformDependent0 - sun.misc.Unsafe.theUnsafe: available
+09:38:05.698 [main] DEBUG io.netty.util.internal.PlatformDependent0 - sun.misc.Unsafe.copyMemory: available
+09:38:05.698 [main] DEBUG io.netty.util.internal.PlatformDependent0 - java.nio.Buffer.address: available
+09:38:05.700 [main] DEBUG io.netty.util.internal.PlatformDependent0 - direct buffer constructor: unavailable
+java.lang.UnsupportedOperationException: Reflective setAccessible(true) disabled
+	at io.netty.util.internal.ReflectionUtil.trySetAccessible(ReflectionUtil.java:31)
+	at io.netty.util.internal.PlatformDependent0$4.run(PlatformDependent0.java:224)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at io.netty.util.internal.PlatformDependent0.<clinit>(PlatformDependent0.java:218)
+	at io.netty.util.internal.PlatformDependent.isAndroid(PlatformDependent.java:213)
+	at io.netty.util.internal.PlatformDependent.<clinit>(PlatformDependent.java:81)
+	at io.netty.channel.nio.NioEventLoop.newTaskQueue(NioEventLoop.java:269)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.<init>(SingleThreadEventExecutor.java:165)
+	at io.netty.channel.SingleThreadEventLoop.<init>(SingleThreadEventLoop.java:58)
+	at io.netty.channel.nio.NioEventLoop.<init>(NioEventLoop.java:135)
+	at io.netty.channel.nio.NioEventLoopGroup.newChild(NioEventLoopGroup.java:127)
+	at io.netty.channel.nio.NioEventLoopGroup.newChild(NioEventLoopGroup.java:36)
+	at io.netty.util.concurrent.MultithreadEventExecutorGroup.<init>(MultithreadEventExecutorGroup.java:84)
+	at io.netty.util.concurrent.MultithreadEventExecutorGroup.<init>(MultithreadEventExecutorGroup.java:58)
+	at io.netty.util.concurrent.MultithreadEventExecutorGroup.<init>(MultithreadEventExecutorGroup.java:47)
+	at io.netty.channel.MultithreadEventLoopGroup.<init>(MultithreadEventLoopGroup.java:59)
+	at io.netty.channel.nio.NioEventLoopGroup.<init>(NioEventLoopGroup.java:77)
+	at io.netty.channel.nio.NioEventLoopGroup.<init>(NioEventLoopGroup.java:72)
+	at io.netty.channel.nio.NioEventLoopGroup.<init>(NioEventLoopGroup.java:59)
+	at io.vertx.core.net.impl.transport.Transport.eventLoopGroup(Transport.java:141)
+	at io.vertx.core.impl.VertxImpl.<init>(VertxImpl.java:145)
+	at io.vertx.core.impl.VertxImpl.clusteredVertx(VertxImpl.java:104)
+	at io.vertx.core.impl.VertxFactoryImpl.clusteredVertx(VertxFactoryImpl.java:41)
+	at io.vertx.core.Vertx.clusteredVertx(Vertx.java:97)
+	at com.kodcu.main.Starter.main(Starter.java:26)
+09:38:05.701 [main] DEBUG io.netty.util.internal.PlatformDependent0 - java.nio.Bits.unaligned: available, true
+09:38:05.702 [main] DEBUG io.netty.util.internal.PlatformDependent0 - jdk.internal.misc.Unsafe.allocateUninitializedArray(int): unavailable
+java.lang.IllegalAccessException: class io.netty.util.internal.PlatformDependent0$6 cannot access class jdk.internal.misc.Unsafe (in module java.base) because module java.base does not export jdk.internal.misc to unnamed module @2781e022
+	at java.base/jdk.internal.reflect.Reflection.newIllegalAccessException(Reflection.java:361)
+	at java.base/java.lang.reflect.AccessibleObject.checkAccess(AccessibleObject.java:591)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:558)
+	at io.netty.util.internal.PlatformDependent0$6.run(PlatformDependent0.java:334)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at io.netty.util.internal.PlatformDependent0.<clinit>(PlatformDependent0.java:325)
+	at io.netty.util.internal.PlatformDependent.isAndroid(PlatformDependent.java:213)
+	at io.netty.util.internal.PlatformDependent.<clinit>(PlatformDependent.java:81)
+	at io.netty.channel.nio.NioEventLoop.newTaskQueue(NioEventLoop.java:269)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.<init>(SingleThreadEventExecutor.java:165)
+	at io.netty.channel.SingleThreadEventLoop.<init>(SingleThreadEventLoop.java:58)
+	at io.netty.channel.nio.NioEventLoop.<init>(NioEventLoop.java:135)
+	at io.netty.channel.nio.NioEventLoopGroup.newChild(NioEventLoopGroup.java:127)
+	at io.netty.channel.nio.NioEventLoopGroup.newChild(NioEventLoopGroup.java:36)
+	at io.netty.util.concurrent.MultithreadEventExecutorGroup.<init>(MultithreadEventExecutorGroup.java:84)
+	at io.netty.util.concurrent.MultithreadEventExecutorGroup.<init>(MultithreadEventExecutorGroup.java:58)
+	at io.netty.util.concurrent.MultithreadEventExecutorGroup.<init>(MultithreadEventExecutorGroup.java:47)
+	at io.netty.channel.MultithreadEventLoopGroup.<init>(MultithreadEventLoopGroup.java:59)
+	at io.netty.channel.nio.NioEventLoopGroup.<init>(NioEventLoopGroup.java:77)
+	at io.netty.channel.nio.NioEventLoopGroup.<init>(NioEventLoopGroup.java:72)
+	at io.netty.channel.nio.NioEventLoopGroup.<init>(NioEventLoopGroup.java:59)
+	at io.vertx.core.net.impl.transport.Transport.eventLoopGroup(Transport.java:141)
+	at io.vertx.core.impl.VertxImpl.<init>(VertxImpl.java:145)
+	at io.vertx.core.impl.VertxImpl.clusteredVertx(VertxImpl.java:104)
+	at io.vertx.core.impl.VertxFactoryImpl.clusteredVertx(VertxFactoryImpl.java:41)
+	at io.vertx.core.Vertx.clusteredVertx(Vertx.java:97)
+	at com.kodcu.main.Starter.main(Starter.java:26)
+09:38:05.702 [main] DEBUG io.netty.util.internal.PlatformDependent0 - java.nio.DirectByteBuffer.<init>(long, int): unavailable
+09:38:05.702 [main] DEBUG io.netty.util.internal.PlatformDependent - sun.misc.Unsafe: available
+09:38:05.718 [main] DEBUG io.netty.util.internal.PlatformDependent - maxDirectMemory: 4177526784 bytes (maybe)
+09:38:05.718 [main] DEBUG io.netty.util.internal.PlatformDependent - -Dio.netty.tmpdir: /tmp (java.io.tmpdir)
+09:38:05.718 [main] DEBUG io.netty.util.internal.PlatformDependent - -Dio.netty.bitMode: 64 (sun.arch.data.model)
+09:38:05.719 [main] DEBUG io.netty.util.internal.PlatformDependent - -Dio.netty.maxDirectMemory: -1 bytes
+09:38:05.719 [main] DEBUG io.netty.util.internal.PlatformDependent - -Dio.netty.uninitializedArrayAllocationThreshold: -1
+09:38:05.720 [main] DEBUG io.netty.util.internal.CleanerJava9 - java.nio.ByteBuffer.cleaner(): available
+09:38:05.720 [main] DEBUG io.netty.util.internal.PlatformDependent - -Dio.netty.noPreferDirect: false
+09:38:05.724 [main] DEBUG io.netty.util.internal.PlatformDependent - org.jctools-core.MpscChunkedArrayQueue: available
+09:38:05.779 [main] DEBUG io.netty.resolver.dns.DefaultDnsServerAddressStreamProvider - Default DNS servers: [/127.0.0.53:53] (sun.net.dns.ResolverConfiguration)
+09:38:05.783 [main] DEBUG io.netty.util.NetUtil - -Djava.net.preferIPv4Stack: false
+09:38:05.783 [main] DEBUG io.netty.util.NetUtil - -Djava.net.preferIPv6Addresses: false
+09:38:05.784 [main] DEBUG io.netty.util.NetUtil - Loopback interface: lo (lo, 0:0:0:0:0:0:0:1%lo)
+09:38:05.785 [main] DEBUG io.netty.util.NetUtil - /proc/sys/net/core/somaxconn: 128
+09:38:05.827 [main] DEBUG io.netty.buffer.AbstractByteBuf - -Dio.netty.buffer.checkAccessible: true
+09:38:05.827 [main] DEBUG io.netty.buffer.AbstractByteBuf - -Dio.netty.buffer.checkBounds: true
+09:38:05.828 [main] DEBUG io.netty.util.ResourceLeakDetectorFactory - Loaded default ResourceLeakDetector: io.netty.util.ResourceLeakDetector@2133814f
+09:38:12.868 [vert.x-eventloop-thread-0] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.numHeapArenas: 8
+09:38:12.868 [vert.x-eventloop-thread-0] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.numDirectArenas: 8
+09:38:12.868 [vert.x-eventloop-thread-0] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.pageSize: 8192
+09:38:12.868 [vert.x-eventloop-thread-0] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.maxOrder: 11
+09:38:12.868 [vert.x-eventloop-thread-0] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.chunkSize: 16777216
+09:38:12.868 [vert.x-eventloop-thread-0] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.tinyCacheSize: 512
+09:38:12.868 [vert.x-eventloop-thread-0] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.smallCacheSize: 256
+09:38:12.868 [vert.x-eventloop-thread-0] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.normalCacheSize: 64
+09:38:12.868 [vert.x-eventloop-thread-0] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.maxCachedBufferCapacity: 32768
+09:38:12.868 [vert.x-eventloop-thread-0] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.cacheTrimInterval: 8192
+09:38:12.868 [vert.x-eventloop-thread-0] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.useCacheForAllThreads: true
+09:38:12.868 [vert.x-eventloop-thread-0] DEBUG io.netty.buffer.PooledByteBufAllocator - -Dio.netty.allocator.maxCachedByteBuffersPerChunk: 1023
+09:38:12.870 [vert.x-eventloop-thread-0] DEBUG io.netty.util.internal.InternalThreadLocalMap - -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024
+09:38:12.870 [vert.x-eventloop-thread-0] DEBUG io.netty.util.internal.InternalThreadLocalMap - -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096
+09:38:12.905 [vert.x-eventloop-thread-0] DEBUG io.netty.channel.DefaultChannelId - -Dio.netty.processId: 2816 (auto-detected)
+09:38:12.907 [vert.x-eventloop-thread-0] DEBUG io.netty.channel.DefaultChannelId - -Dio.netty.machineId: ac:fd:ce:ff:fe:e1:01:d6 (auto-detected)
+09:38:12.919 [vert.x-eventloop-thread-0] DEBUG io.netty.buffer.ByteBufUtil - -Dio.netty.allocator.type: pooled
+09:38:12.919 [vert.x-eventloop-thread-0] DEBUG io.netty.buffer.ByteBufUtil - -Dio.netty.threadLocalDirectBufferSize: 0
+09:38:12.920 [vert.x-eventloop-thread-0] DEBUG io.netty.buffer.ByteBufUtil - -Dio.netty.maxThreadLocalCharBufferSize: 16384
+09:38:13.250 [vert.x-eventloop-thread-1] INFO com.kodcu.helper.HttpServerHelper - HTTP server running on port 8080 
+09:38:13.250 [vert.x-eventloop-thread-0] INFO com.kodcu.main.Starter - Deployment id is 5d432821-93f3-4271-a5e6-5fd1f6b4471e 
+09:38:13.479 [vert.x-eventloop-thread-1] DEBUG io.netty.util.Recycler - -Dio.netty.recycler.maxCapacityPerThread: 4096
+09:38:13.480 [vert.x-eventloop-thread-1] DEBUG io.netty.util.Recycler - -Dio.netty.recycler.maxSharedCapacityFactor: 2
+09:38:13.480 [vert.x-eventloop-thread-1] DEBUG io.netty.util.Recycler - -Dio.netty.recycler.linkCapacity: 16
+09:38:13.480 [vert.x-eventloop-thread-1] DEBUG io.netty.util.Recycler - -Dio.netty.recycler.ratio: 8
+09:38:13.505 [vert.x-eventloop-thread-1] DEBUG io.netty.handler.codec.compression.ZlibCodecFactory - -Dio.netty.noJdkZlibDecoder: false
+09:38:13.505 [vert.x-eventloop-thread-1] DEBUG io.netty.handler.codec.compression.ZlibCodecFactory - -Dio.netty.noJdkZlibEncoder: false
+09:38:13.551 [vert.x-eventloop-thread-1] DEBUG com.kodcu.sdr.verticle.ReaderVerticle - Stock Exchange object is null 
+09:38:14.474 [vert.x-eventloop-thread-1] DEBUG com.kodcu.sdr.verticle.ReaderVerticle - Stock Exchange object is null 
+09:38:15.470 [vert.x-eventloop-thread-1] DEBUG com.kodcu.sdr.verticle.ReaderVerticle - Stock Exchange object is null 
+09:38:16.472 [vert.x-eventloop-thread-1] DEBUG com.kodcu.sdr.verticle.ReaderVerticle - Stock Exchange object is null 
+09:38:17.474 [vert.x-eventloop-thread-1] DEBUG com.kodcu.sdr.verticle.ReaderVerticle - Stock Exchange object is null 
+09:38:18.470 [vert.x-eventloop-thread-1] DEBUG com.kodcu.sdr.verticle.ReaderVerticle - Stock Exchange object is null 
+09:38:19.475 [vert.x-eventloop-thread-1] DEBUG com.kodcu.sdr.verticle.ReaderVerticle - Stock Exchange object is null 
+09:38:20.473 [vert.x-eventloop-thread-1] DEBUG com.kodcu.sdr.verticle.ReaderVerticle - Stock Exchange object is null 
+09:38:21.475 [vert.x-eventloop-thread-1] DEBUG com.kodcu.sdr.verticle.ReaderVerticle - Stock Exchange object is null 
+09:38:22.474 [vert.x-eventloop-thread-1] DEBUG com.kodcu.sdr.verticle.ReaderVerticle - Stock Exchange object is null 
+09:38:23.473 [vert.x-eventloop-thread-1] DEBUG com.kodcu.sdr.verticle.ReaderVerticle - Stock Exchange object is null 
+09:38:24.472 [vert.x-eventloop-thread-1] DEBUG com.kodcu.sdr.verticle.ReaderVerticle - Stock Exchange object is null 
+09:38:25.474 [vert.x-eventloop-thread-1] DEBUG com.kodcu.sdr.verticle.ReaderVerticle - Stock Exchange object is null 
+09:38:26.472 [vert.x-eventloop-thread-1] DEBUG com.kodcu.sdr.verticle.ReaderVerticle - Stock Exchange object is null 
+09:38:27.477 [vert.x-eventloop-thread-1] DEBUG com.kodcu.sdr.verticle.ReaderVerticle - Stock Exchange object is null 
+09:38:28.474 [vert.x-eventloop-thread-1] DEBUG com.kodcu.sdr.verticle.ReaderVerticle - Stock Exchange object is null 
+09:38:29.476 [vert.x-eventloop-thread-1] DEBUG com.kodcu.sdr.verticle.ReaderVerticle - Stock Exchange object is null 
+09:38:30.474 [vert.x-eventloop-thread-1] DEBUG com.kodcu.sdr.verticle.ReaderVerticle - Stock Exchange object is null 
+09:38:31.476 [vert.x-eventloop-thread-1] DEBUG com.kodcu.sdr.verticle.ReaderVerticle - Stock Exchange object is null 
+09:38:32.475 [vert.x-eventloop-thread-1] DEBUG com.kodcu.sdr.verticle.ReaderVerticle - Stock Exchange object is null 
+09:38:33.474 [vert.x-eventloop-thread-1] DEBUG com.kodcu.sdr.verticle.ReaderVerticle - Stock Exchange object is null 
+09:38:34.478 [vert.x-eventloop-thread-1] DEBUG com.kodcu.sdr.verticle.ReaderVerticle - Stock Exchange object is null 
+09:38:35.477 [vert.x-eventloop-thread-1] DEBUG com.kodcu.sdr.verticle.ReaderVerticle - Stock Exchange object is null 
+09:38:36.474 [vert.x-eventloop-thread-1] DEBUG com.kodcu.sdr.verticle.ReaderVerticle - Stock Exchange object is null 
+09:38:37.475 [vert.x-eventloop-thread-1] DEBUG com.kodcu.sdr.verticle.ReaderVerticle - Stock Exchange object is null 
+09:38:38.475 [vert.x-eventloop-thread-1] DEBUG com.kodcu.sdr.verticle.ReaderVerticle - Stock Exchange object is null 
+09:38:39.475 [vert.x-eventloop-thread-1] DEBUG com.kodcu.sdr.verticle.ReaderVerticle - Stock Exchange object is null 
+09:38:40.478 [vert.x-eventloop-thread-1] DEBUG com.kodcu.sdr.verticle.ReaderVerticle - Stock Exchange object is null 
+09:38:41.479 [vert.x-eventloop-thread-1] DEBUG com.kodcu.sdr.verticle.ReaderVerticle - Stock Exchange object is null 
+09:38:42.477 [vert.x-eventloop-thread-1] DEBUG com.kodcu.sdr.verticle.ReaderVerticle - Stock Exchange object is null 
+09:38:43.480 [vert.x-eventloop-thread-1] DEBUG com.kodcu.sdr.verticle.ReaderVerticle - Stock Exchange object is null 
+09:38:44.478 [vert.x-eventloop-thread-1] DEBUG com.kodcu.sdr.verticle.ReaderVerticle - Stock Exchange object is null 
+09:38:45.479 [vert.x-eventloop-thread-1] DEBUG com.kodcu.sdr.verticle.ReaderVerticle - Stock Exchange object is null 
+09:38:46.479 [vert.x-eventloop-thread-1] DEBUG com.kodcu.sdr.verticle.ReaderVerticle - Stock Exchange object is null 
+09:38:47.480 [vert.x-eventloop-thread-1] DEBUG com.kodcu.sdr.verticle.ReaderVerticle - Stock Exchange object is null 

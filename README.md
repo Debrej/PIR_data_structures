@@ -7,12 +7,13 @@ Pour mettre en place le dataProvider et dataReader on se place dans le dossier h
 mvn clean install
 ```
 
-Ensuite, on ouvre deux terminaux, un dans SharedDataProvider et un dans SharedDataReader. On entre les commandes suivantes :
+Ensuite, on ouvre deux terminaux dans hazelcast. On entre les commandes suivantes :
 
 ```
-hazelcast/SharedDataProvider$ java -jar target/asyncPutVerticle.jar "<fichier des membres>" "<interface>" -cluster
+java -jar SharedDataProvider/target/asyncPutVerticle.jar SharedDataProvider/members.txt <interface> SharedDataProvider/keys.txt
+-cluster
 
-hazelcast/SharedDataReader$ java -jar target/asyncReaderVerticle.jar "<fichier des membres>" "<interface>" -cluster
+java -jar SharedDataReader/target/asyncReadVerticle.jar SharedDataReader/members.txt <interface> SharedDataReader/keys.txt <nombre de Reader> -cluster
 ```
 
 Les adresses des membres doivent être sous cette forme, une par ligne :
@@ -25,7 +26,37 @@ X.X.X.X
 
 L'interface est l'adresse réseau de la machine sur laquelle le verticle est exécuté.
 
-Enfin, on ouvre son navigateur à l'adresse _localhost:8080_ pour voir les échanges de données.
+Les clés de recherches doivent être sous cette forme, une par ligne :
+```
+xxxx
+xx
+x
+
+```
+Pour modifier le nombre de fichiers dans le cluster, il suffit de modifier le nombre de clés dans le fichier SharedDateProvider/keys.txt.
+Pour cela, dans DataSharedProvider, utiliser la commande :
+```
+java createKeys <nombre de fichiers> 
+
+```
+Pour DataSharedReader, laisser la clé "a" à chercher.
+Penser à bien changer le fichier placé dans le cluster.
+
+```
+Exemple de test :
+pour la colone localhost, 1 fichier, image, Uniforme, Non Compressé, 20775, 1 :
+	-> On modifie le nom du fichier dans SharedDataProvider/PutFile.java : private String NAME_FILE="image20775.jpeg"
+	-> java createKeys 1
+	-> java -jar SharedDataProvider/target/asyncPutVerticle.jar SharedDataProvider/members.txt 127.0.0.1 SharedDataProvider/keys.txt
+-cluster
+	-> java -jar SharedDataReader/target/asyncReadVerticle.jar SharedDataReader/members.txt 127.0.0.1 SharedDataReader/keys.txt 1 -cluster
+	-> On ouvre le fichier temps_lecture.txt
+	-> On copie-colle le tout dans le tableur
+	-> On sélectionne separated by Other ":"
+	-> ctrl+h pour remplacer les "." par des ","
+	-> On récupère la moyenne 
+	-> On copie-spécial_colle dans la case AJ8 (cocher number et pas formula)
+```
 
 ## Vie du projet
 

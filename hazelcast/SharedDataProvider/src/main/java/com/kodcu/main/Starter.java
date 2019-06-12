@@ -1,16 +1,15 @@
 package com.kodcu.main;
 
+import com.kodcu.asm.verticle.PutFile;
 import com.kodcu.helper.ClusterConfiguratorHelper;
-import com.kodcu.asm.verticle.PutVerticle;
-
 import io.vertx.core.Vertx;
 import io.vertx.core.VertxOptions;
 import io.vertx.core.spi.cluster.ClusterManager;
 import io.vertx.spi.cluster.hazelcast.HazelcastClusterManager;
-
 import lombok.extern.slf4j.Slf4j;
 
-import java.nio.file.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 /**
  * @author hakdogan (hakdogan@kodcu.com)
@@ -29,12 +28,14 @@ public class Starter {
         try {
             String membersStr = new String(Files.readAllBytes(Paths.get(args[0])));
             String[] members = membersStr.split("\n");
+            String keysStr = new String(Files.readAllBytes(Paths.get(args[2])));
+            String[] keys = keysStr.split("\n");
 
             final ClusterManager mgr = new HazelcastClusterManager(ClusterConfiguratorHelper.getHazelcastConfigurationSetUp(members, args[1]));
             final VertxOptions options = new VertxOptions().setClusterManager(mgr);
             Vertx.clusteredVertx(options, cluster -> {
                 if (cluster.succeeded()) {
-                    cluster.result().deployVerticle(new PutVerticle(), res -> {
+                    cluster.result().deployVerticle(new PutFile(keys), res -> {
                         if (res.succeeded()) {
                             log.info("Deployment id is: {} ", res.result());
                         } else {
