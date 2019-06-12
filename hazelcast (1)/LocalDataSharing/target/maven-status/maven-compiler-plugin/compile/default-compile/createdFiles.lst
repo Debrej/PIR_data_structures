@@ -1,0 +1,4 @@
+com/kodcu/lds/verticle/LocalDataSharingAndReaderLauncher.class
+com/kodcu/lds/verticle/SharingVerticle.class
+com/kodcu/main/Starter.class
+com/kodcu/lds/verticle/ReaderVerticle.class
