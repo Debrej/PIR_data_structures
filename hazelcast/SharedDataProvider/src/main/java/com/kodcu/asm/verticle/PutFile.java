@@ -9,6 +9,15 @@ import org.apache.commons.io.FileUtils;
 import java.io.File;
 import java.io.IOException;
 
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+import java.time.LocalDateTime;
+import java.util.Arrays;
+import java.util.Random;
+import java.util.zip.Deflater;
+import java.util.zip.DeflaterOutputStream;
+import java.io.*;
+
 import static com.kodcu.util.Constants.DEFAULT_ASYNC_MAP_NAME;
 
 /**
@@ -26,19 +35,37 @@ public class PutFile extends AbstractVerticle
     this.keys = keys;
   }
 
+  public static byte[] compress(byte[] data) throws IOException {
+   Deflater deflater = new Deflater();
+   deflater.setLevel(9);
+   deflater.setInput(data);
+   ByteArrayOutputStream outputStream = new ByteArrayOutputStream(data.length);
+   deflater.finish();
+   byte[] buffer = new byte[1024];
+   while (!deflater.finished()) {
+
+       int count = deflater.deflate(buffer); // returns the generated code... index
+       outputStream.write(buffer, 0, count);
+   }
+   outputStream.close();
+   byte[] output = outputStream.toByteArray();
+   return output;
+ }
+
     @Override
-    public void start() throws IOException {
+    public void start() throws IOException, NoSuchAlgorithmException  {
         final SharedData sharedData = vertx.sharedData();
         for(String k:keys){
             String[] key = k.split(",");
             File fileExchange = new File(DIRECTORY+key[1]);
             byte[] byteArray = FileUtils.readFileToByteArray(fileExchange);
+            byte[] dataCompress = compress(byteArray);
 
             sharedData.<String, byte[]>getAsyncMap(DEFAULT_ASYNC_MAP_NAME, res -> {
                   if (res.succeeded()) {
                       AsyncMap<String, byte[]> myAsyncMap = res.result();
                       myAsyncMap.get(k, asyncDataResult -> {
-                          myAsyncMap.put(key[0], byteArray, resPut -> {
+                          myAsyncMap.put(key[0], dataCompress, resPut -> {
                               if (resPut.succeeded()) {
                                   log.info("Added data into the map {} ", String.valueOf(fileExchange));
                               } else {
