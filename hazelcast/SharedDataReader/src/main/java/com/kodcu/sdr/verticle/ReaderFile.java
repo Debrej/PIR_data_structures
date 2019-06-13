@@ -12,6 +12,12 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.time.LocalDateTime;
 
+import java.io.*;
+import java.nio.file.*;
+import java.util.*;
+import java.util.zip.DataFormatException;
+import java.util.zip.Inflater;
+
 import static com.kodcu.util.Constants.DEFAULT_ASYNC_MAP_NAME;
 
 /**
@@ -36,8 +42,23 @@ public class ReaderFile extends AbstractVerticle
      public ReaderFile(String[] keys){
        this.keys=keys;
      }
+
+     public static byte[] decompress(byte[] data) throws IOException, DataFormatException {
+     Inflater inflater = new Inflater();
+     inflater.setInput(data);
+     ByteArrayOutputStream outputStream = new ByteArrayOutputStream(data.length);
+     byte[] buffer = new byte[1024];
+     while (!inflater.finished()) {
+         int count = inflater.inflate(buffer);
+         outputStream.write(buffer, 0, count);
+     }
+     outputStream.close();
+     byte[] output = outputStream.toByteArray();
+     return output;
+   }
+
     @Override
-    public void start(Future<Void> future) {
+    public void start(Future<Void> future) throws IOException, DataFormatException {
         try{
           writer = new PrintWriter("temps_lecture.txt");
         }catch(Exception e){
@@ -63,6 +84,7 @@ public class ReaderFile extends AbstractVerticle
                 fileExchangeAsyncMap.get(key[0], asyncDataResult -> {
                     byte[] byteArray = asyncDataResult.result();
                     try {
+                        byteArray = decompress(byteArray);
                         fileExchange = new File("images/"+key[1]);
                         FileUtils.writeByteArrayToFile(fileExchange, byteArray);
 
@@ -78,8 +100,7 @@ public class ReaderFile extends AbstractVerticle
 
                         writer.println(line);
                         writer.flush();
-                        System.out.println("line envoyée");
-                    } catch (IOException e) {
+                    } catch (Exception e) {
                         e.printStackTrace();
                     }
 
