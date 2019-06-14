@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ReaderFile.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">shared-data-reader</a> &gt; <a href="index.source.html" class="el_package">com.kodcu.sdr.verticle</a> &gt; <span class="el_source">ReaderFile.java</span></div><h1>ReaderFile.java</h1><pre class="source lang-java linenums">package com.kodcu.sdr.verticle;
+
+import io.vertx.core.AbstractVerticle;
+import io.vertx.core.Future;
+import io.vertx.core.shareddata.AsyncMap;
+import io.vertx.core.shareddata.SharedData;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.io.FileUtils;
+
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.time.LocalDateTime;
+
+import java.io.*;
+import java.nio.file.*;
+import java.util.*;
+import java.util.zip.DataFormatException;
+import java.util.zip.Inflater;
+
+import static com.kodcu.util.Constants.DEFAULT_ASYNC_MAP_NAME;
+
+/**
+ * @author hakdogan (hakdogan@kodcu.com)
+ * Created on 13.10.2018
+ */
+
+<span class="nc" id="L28">@Slf4j</span>
+public class ReaderFile extends AbstractVerticle
+{
+    private static final String TEMPLATE_FILE_NAME = &quot;/index.ftl&quot;;
+    private File fileExchange;
+
+    PrintWriter writer;
+<span class="nc" id="L35">    final int nmbSearch=1;</span>
+    String[] keys;
+    /**
+     *
+     * @param future
+     */
+
+<span class="nc" id="L42">     public ReaderFile(String[] keys, PrintWriter writer){</span>
+<span class="nc" id="L43">       this.keys=keys;</span>
+<span class="nc" id="L44">       this.writer=writer;</span>
+<span class="nc" id="L45">     }</span>
+
+     public static byte[] decompress(byte[] data) throws IOException, DataFormatException {
+<span class="nc" id="L48">     Inflater inflater = new Inflater();</span>
+<span class="nc" id="L49">     inflater.setInput(data);</span>
+<span class="nc" id="L50">     ByteArrayOutputStream outputStream = new ByteArrayOutputStream(data.length);</span>
+<span class="nc" id="L51">     byte[] buffer = new byte[1024];</span>
+<span class="nc bnc" id="L52" title="All 2 branches missed.">     while (!inflater.finished()) {</span>
+<span class="nc" id="L53">         int count = inflater.inflate(buffer);</span>
+<span class="nc" id="L54">         outputStream.write(buffer, 0, count);</span>
+<span class="nc" id="L55">     }</span>
+<span class="nc" id="L56">     outputStream.close();</span>
+<span class="nc" id="L57">     byte[] output = outputStream.toByteArray();</span>
+<span class="nc" id="L58">     return output;</span>
+   }
+
+    @Override
+    public void start(Future&lt;Void&gt; future) throws IOException, DataFormatException  {
+
+<span class="nc bnc" id="L64" title="All 2 branches missed.">          for(String k:keys){</span>
+<span class="nc" id="L65">              String[] key = k.split(&quot;,&quot;);</span>
+
+<span class="nc" id="L67">              saveExchangeData(key);</span>
+<span class="nc" id="L68">              System.out.println(&quot;lancé&quot;);</span>
+        }
+<span class="nc" id="L70">    }</span>
+
+
+    private void saveExchangeData(String[] key){
+<span class="nc bnc" id="L74" title="All 2 branches missed.">      for(int i=0;i&lt;nmbSearch;i++){</span>
+<span class="nc" id="L75">        SharedData sharedData = vertx.sharedData();</span>
+<span class="nc" id="L76">        sharedData.&lt;String, byte[]&gt;getAsyncMap(DEFAULT_ASYNC_MAP_NAME, res -&gt; {</span>
+<span class="nc bnc" id="L77" title="All 2 branches missed.">              if (res.succeeded()) {</span>
+<span class="nc" id="L78">                AsyncMap&lt;String, byte[]&gt; fileExchangeAsyncMap = res.result();</span>
+                // try{
+                //   Thread.sleep(3000);
+                // }catch(Exception e){
+                //
+                // }
+
+<span class="nc" id="L85">                LocalDateTime dateTime = LocalDateTime.now();</span>
+
+<span class="nc" id="L87">                fileExchangeAsyncMap.get(key[0], asyncDataResult -&gt; {</span>
+
+
+<span class="nc" id="L90">                    byte[] byteArray = asyncDataResult.result();</span>
+                    try {
+                        // byteArray = decompress(byteArray);
+<span class="nc" id="L93">                        fileExchange = new File(&quot;images/&quot;+key[1]);</span>
+<span class="nc" id="L94">                        FileUtils.writeByteArrayToFile(fileExchange, byteArray);</span>
+
+<span class="nc" id="L96">                        LocalDateTime dateTime2 = LocalDateTime.now();</span>
+
+<span class="nc" id="L98">                        log.info(&quot;Stock Exchange object is {} &quot;, fileExchange);</span>
+<span class="nc" id="L99">                        log.info(&quot;Date is {}&quot;, dateTime2);</span>
+<span class="nc" id="L100">                        double time = computeTime(dateTime, dateTime2);</span>
+<span class="nc" id="L101">                        log.info(&quot;Data read in {}s  &quot;, time);</span>
+<span class="nc" id="L102">                        log.info(&quot;Data length : &quot;+fileExchange.length()+&quot;octets&quot;);</span>
+
+<span class="nc" id="L104">                        String line =  String.valueOf(time);</span>
+
+<span class="nc" id="L106">                        writer.println(line);</span>
+<span class="nc" id="L107">                        writer.flush();</span>
+<span class="nc" id="L108">                    } catch (Exception e) {</span>
+<span class="nc" id="L109">                        e.printStackTrace();</span>
+<span class="nc" id="L110">                    }</span>
+
+<span class="nc" id="L112">                });</span>
+<span class="nc" id="L113">            } else {</span>
+<span class="nc" id="L114">                log.debug(&quot;Something went wrong when access to shared map!&quot;);</span>
+            }
+
+<span class="nc" id="L117">        });</span>
+      }
+<span class="nc" id="L119">    }</span>
+
+    private double computeTime(LocalDateTime d1, LocalDateTime d2){
+<span class="nc" id="L122">        int m1=d1.getMinute();</span>
+<span class="nc" id="L123">        int m2=d2.getMinute();</span>
+<span class="nc" id="L124">        int s1=d1.getSecond();</span>
+<span class="nc" id="L125">        int s2 =d2.getSecond();</span>
+<span class="nc" id="L126">        int n1=d1.getNano();</span>
+<span class="nc" id="L127">        int n2=d2.getNano();</span>
+<span class="nc" id="L128">        double m = 0, n = 0, s = 0;</span>
+
+<span class="nc bnc" id="L130" title="All 2 branches missed.">        if(n1&gt;n2){</span>
+<span class="nc" id="L131">            n = n2-n1+1E9;</span>
+<span class="nc" id="L132">            s = s-1;</span>
+        }else{
+<span class="nc" id="L134">            n=n2-n1;</span>
+        }
+
+<span class="nc bnc" id="L137" title="All 2 branches missed.">        if(s1&gt;s2){</span>
+<span class="nc" id="L138">            s=s+s2-s1+60;</span>
+<span class="nc" id="L139">            m=m-1;</span>
+        }else{
+<span class="nc" id="L141">            s=s+s2-s1;</span>
+        }
+
+<span class="nc bnc" id="L144" title="All 2 branches missed.">        if(m1&gt;m2){</span>
+<span class="nc" id="L145">            m=m+m2-m1+60;</span>
+        }else{
+<span class="nc" id="L147">            m=m+m2-m1;</span>
+        }
+
+<span class="nc" id="L150">        return m*60+s+(n/1E9);</span>
+    }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

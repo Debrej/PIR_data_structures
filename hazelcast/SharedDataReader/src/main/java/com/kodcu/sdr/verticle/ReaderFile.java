@@ -32,15 +32,16 @@ public class ReaderFile extends AbstractVerticle
     private File fileExchange;
 
     PrintWriter writer;
-    final int nmbSearch=10;
+    final int nmbSearch=1;
     String[] keys;
     /**
      *
      * @param future
      */
 
-     public ReaderFile(String[] keys){
+     public ReaderFile(String[] keys, PrintWriter writer){
        this.keys=keys;
+       this.writer=writer;
      }
 
      public static byte[] decompress(byte[] data) throws IOException, DataFormatException {
@@ -58,33 +59,33 @@ public class ReaderFile extends AbstractVerticle
    }
 
     @Override
-    public void start(Future<Void> future) throws IOException, DataFormatException {
-        try{
-          writer = new PrintWriter("temps_lecture.txt");
-        }catch(Exception e){
+    public void start(Future<Void> future) throws IOException, DataFormatException  {
 
-        }
-        for(int i=0;i<nmbSearch;i++){
           for(String k:keys){
               String[] key = k.split(",");
+
               saveExchangeData(key);
-          }
+              System.out.println("lancé");
         }
     }
 
 
     private void saveExchangeData(String[] key){
+      for(int i=0;i<nmbSearch;i++){
         SharedData sharedData = vertx.sharedData();
         sharedData.<String, byte[]>getAsyncMap(DEFAULT_ASYNC_MAP_NAME, res -> {
               if (res.succeeded()) {
                 AsyncMap<String, byte[]> fileExchangeAsyncMap = res.result();
+            
+
                 LocalDateTime dateTime = LocalDateTime.now();
-                log.info("Date is {}", dateTime);
 
                 fileExchangeAsyncMap.get(key[0], asyncDataResult -> {
+
+
                     byte[] byteArray = asyncDataResult.result();
                     try {
-                        byteArray = decompress(byteArray);
+                        // byteArray = decompress(byteArray);
                         fileExchange = new File("images/"+key[1]);
                         FileUtils.writeByteArrayToFile(fileExchange, byteArray);
 
@@ -96,7 +97,7 @@ public class ReaderFile extends AbstractVerticle
                         log.info("Data read in {}s  ", time);
                         log.info("Data length : "+fileExchange.length()+"octets");
 
-                        String line = String.join(":",String.valueOf(fileExchange),String.valueOf(fileExchange.length()),String.valueOf(time));
+                        String line =  String.valueOf(time);
 
                         writer.println(line);
                         writer.flush();
@@ -110,6 +111,7 @@ public class ReaderFile extends AbstractVerticle
             }
 
         });
+      }
     }
 
     private double computeTime(LocalDateTime d1, LocalDateTime d2){
@@ -143,4 +145,6 @@ public class ReaderFile extends AbstractVerticle
 
         return m*60+s+(n/1E9);
     }
+
+
 }

@@ -18,6 +18,7 @@ public class createKeys{
           writer.print(key);
 
         }
+	writer.print(",img20ko.jpeg");
         writer.flush();
         writer.println();
         i--;

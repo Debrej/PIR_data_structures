@@ -45,11 +45,9 @@ public class ReaderFileInfini extends AbstractVerticle
 
     @Override
     public void start(Future<Void> future) {
-        for(int i=0;i<10;i++){
           for(String key:keys){
             saveExchangeData(key);
           }
-        }
     }
 
 

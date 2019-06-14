@@ -16,6 +16,9 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.nio.file.*;
 
+import java.io.PrintWriter;
+
+
 /**
  * @author hakdogan (hakdogan@kodcu.com)
  * Created on 13.10.2018
@@ -28,59 +31,76 @@ public class Starter {
      *
      * @param args
      */
+
+
     public static void main(String[] args){
       int nmbReader=Integer.parseInt(args[3]);
+      int nmbSearch =100;
+      PrintWriter writer;
+
+
         try {
             String membersStr = new String(Files.readAllBytes(Paths.get(args[0])));
             String[] members = membersStr.split("\n");
             String keysStr = new String(Files.readAllBytes(Paths.get(args[2])));
             String[] keys = keysStr.split("\n");
 
+            writer = new PrintWriter("temps_lecture.txt");
+
+
             final ClusterManager mgr = new HazelcastClusterManager(ClusterConfiguratorHelper.getHazelcastConfigurationSetUp(members, args[1]));
             final VertxOptions options = new VertxOptions().setClusterManager(mgr);
             Vertx.clusteredVertx(options, cluster -> {
                 if (cluster.succeeded()) {
-                    cluster.result().deployVerticle(new ReaderFile(keys), res -> {
+                  for(int i=0;i<nmbSearch;i++){
+
+                    cluster.result().deployVerticle(new ReaderFile(keys,writer), res -> {
                         if (res.succeeded()) {
                             log.info("Deployment id is: {} ", res.result());
                         } else {
                             log.error("Deployment failed!", res.cause());
                         }
                     });
+                  }
                 } else {
                     log.error("Cluster up failed!", cluster.cause());
                 }
             });
+
+
+
         }
-        catch (java.io.IOException e) {
+        catch (Exception e) {
             e.printStackTrace();
         }
-        for(int i=0;i<nmbReader-1;i++){
-          try {
-              String membersStr = new String(Files.readAllBytes(Paths.get(args[0])));
-              String[] members = membersStr.split("\n");
-              String keysStr = new String(Files.readAllBytes(Paths.get(args[2])));
-              String[] keys = keysStr.split("\n");
-
-              final ClusterManager mgr = new HazelcastClusterManager(ClusterConfiguratorHelper.getHazelcastConfigurationSetUp(members, args[1]));
-              final VertxOptions options = new VertxOptions().setClusterManager(mgr);
-              Vertx.clusteredVertx(options, cluster -> {
-                  if (cluster.succeeded()) {
-                      cluster.result().deployVerticle(new ReaderFileInfini(keys), res -> {
-                          if (res.succeeded()) {
-                              log.info("Deployment id is: {} ", res.result());
-                          } else {
-                              log.error("Deployment failed!", res.cause());
-                          }
-                      });
-                  } else {
-                      log.error("Cluster up failed!", cluster.cause());
-                  }
-              });
-          }
-          catch (java.io.IOException e) {
-              e.printStackTrace();
-          }
-      }
+      //   for(int i=0;i<nmbReader-1;i++){
+      //     try {
+      //         String membersStr = new String(Files.readAllBytes(Paths.get(args[0])));
+      //         String[] members = membersStr.split("\n");
+      //         String keysStr = new String(Files.readAllBytes(Paths.get(args[2])));
+      //         String[] keys = keysStr.split("\n");
+      //
+      //         final ClusterManager mgr = new HazelcastClusterManager(ClusterConfiguratorHelper.getHazelcastConfigurationSetUp(members, args[1]));
+      //         final VertxOptions options = new VertxOptions().setClusterManager(mgr);
+      //         Vertx.clusteredVertx(options, cluster -> {
+      //             if (cluster.succeeded()) {
+      //                 cluster.result().deployVerticle(new ReaderFileInfini(keys), res -> {
+      //                     if (res.succeeded()) {
+      //                         log.info("Deployment id is: {} ", res.result());
+      //                     } else {
+      //                         log.error("Deployment failed!", res.cause());
+      //                     }
+      //                 });
+      //             } else {
+      //                 log.error("Cluster up failed!", cluster.cause());
+      //             }
+      //         });
+      //     }
+      //     catch (java.io.IOException e) {
+      //         e.printStackTrace();
+      //     }
+      // }
     }
+
+
 }
