@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>RateLimiterHandler.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">routing</a> &gt; <a href="index.source.html" class="el_package">com.kodcu.routing.handler</a> &gt; <span class="el_source">RateLimiterHandler.java</span></div><h1>RateLimiterHandler.java</h1><pre class="source lang-java linenums">package com.kodcu.routing.handler;
+
+import com.hazelcast.core.Hazelcast;
+import com.hazelcast.core.HazelcastInstance;
+import com.hazelcast.core.IMap;
+import com.kodcu.entity.Bucket;
+import io.vertx.config.ConfigRetriever;
+import io.vertx.config.ConfigRetrieverOptions;
+import io.vertx.core.Handler;
+import io.vertx.core.json.JsonObject;
+import io.vertx.ext.web.RoutingContext;
+import lombok.extern.slf4j.Slf4j;
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
+import static com.kodcu.util.Constants.*;
+
+/**
+ * @author hakdogan (hakdogan@kodcu.com)
+ * Created on 2019-05-25
+ */
+
+<span class="fc" id="L22">@Slf4j</span>
+public class RateLimiterHandler implements Handler&lt;RoutingContext&gt; {
+
+    private final ConfigRetrieverOptions options;
+<span class="fc" id="L26">    private final String SHARED_MAP_NAME = &quot;myLimiter&quot;;</span>
+
+    /**
+     *
+     * @param options
+     */
+<span class="fc" id="L32">    public RateLimiterHandler(ConfigRetrieverOptions options) {</span>
+<span class="fc" id="L33">        this.options = options;</span>
+<span class="fc" id="L34">    }</span>
+
+    /**
+     *
+     * @param context
+     */
+    @Override
+    public void handle(RoutingContext context) {
+
+<span class="fc" id="L43">        final ConfigRetriever retriever = ConfigRetriever.create(context.vertx(), options);</span>
+<span class="fc" id="L44">        retriever.getConfig(ar -&gt; {</span>
+<span class="pc bpc" id="L45" title="1 of 2 branches missed.">            if (ar.failed()) {</span>
+<span class="nc" id="L46">                log.error(&quot;Failed to retrieve the configuration&quot;);</span>
+            } else {
+                try {
+                    Bucket limiter;
+<span class="fc" id="L50">                    final JsonObject config = ar.result();</span>
+<span class="fc" id="L51">                    final Set&lt;HazelcastInstance&gt; instances = Hazelcast.getAllHazelcastInstances();</span>
+<span class="fc" id="L52">                    final HazelcastInstance hz = instances.stream().findFirst().get();</span>
+<span class="fc" id="L53">                    final IMap&lt;String, Bucket&gt; rateLimiterIMap = hz.getMap(SHARED_MAP_NAME);</span>
+
+<span class="fc bfc" id="L55" title="All 2 branches covered.">                    if (rateLimiterIMap.isEmpty()) {</span>
+<span class="fc" id="L56">                        limiter = new Bucket();</span>
+<span class="fc" id="L57">                        limiter.setBucketKey(config.getString(&quot;bucketKey&quot;));</span>
+<span class="fc" id="L58">                        limiter.setToken(config.getInteger(&quot;ratelimit&quot;));</span>
+                    } else {
+<span class="fc" id="L60">                        limiter = rateLimiterIMap.get(SHARED_MAP_NAME);</span>
+<span class="fc" id="L61">                        limiter.setToken(limiter.getToken() - 1);</span>
+<span class="fc bfc" id="L62" title="All 2 branches covered.">                        if (limiter.getToken() &lt; 1) {</span>
+<span class="fc" id="L63">                            log.info(&quot;Request rejected...&quot;);</span>
+<span class="fc" id="L64">                            context.response()</span>
+<span class="fc" id="L65">                                    .putHeader(CONTENT_TYPE, HTML_PRODUCE)</span>
+<span class="fc" id="L66">                                    .setStatusCode(HTTP_TOO_MANY_REQUESTS)</span>
+<span class="fc" id="L67">                                    .end(&quot;Too many requests&quot;);</span>
+<span class="fc" id="L68">                            return;</span>
+                        }
+                    }
+
+<span class="fc" id="L72">                    rateLimiterIMap.put(SHARED_MAP_NAME, limiter, 60, TimeUnit.MINUTES);</span>
+<span class="fc" id="L73">                    log.info(&quot;Request allowed...&quot;);</span>
+<span class="fc" id="L74">                    context.response()</span>
+<span class="fc" id="L75">                            .putHeader(CONTENT_TYPE, HTML_PRODUCE)</span>
+<span class="fc" id="L76">                            .setStatusCode(HTTP_STATUS_CODE_OK)</span>
+<span class="fc" id="L77">                            .end(&quot;Welcome!&quot;);</span>
+
+<span class="nc" id="L79">                } catch (Exception ex){</span>
+<span class="nc" id="L80">                    context.response()</span>
+<span class="nc" id="L81">                            .putHeader(CONTENT_TYPE, HTML_PRODUCE)</span>
+<span class="nc" id="L82">                            .setStatusCode(INTERNEL_SERVER_ERROR_CODE)</span>
+<span class="nc" id="L83">                            .end(ex.toString());</span>
+<span class="fc" id="L84">                }</span>
+
+            }
+<span class="fc" id="L87">        });</span>
+<span class="fc" id="L88">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

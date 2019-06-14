@@ -1,0 +1,8 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+helper,com.kodcu.helper,PageRenderHelper,48,0,2,0,11,0,4,0,3,0
+helper,com.kodcu.helper,ClusterConfiguratorHelper,92,0,2,0,19,0,3,0,2,0
+helper,com.kodcu.helper,RouterHelper,19,12,0,0,3,3,1,1,1,1
+helper,com.kodcu.helper,SoapUIHelper,63,0,2,0,10,0,7,0,6,0
+helper,com.kodcu.helper,HttpServerHelper,53,0,2,0,12,0,5,0,4,0
+helper,com.kodcu.helper,RandomPortHelper,7,13,0,0,3,3,0,2,0,2
+helper,com.kodcu.helper,VerticleDeployHelper,101,0,6,0,29,0,9,0,6,0

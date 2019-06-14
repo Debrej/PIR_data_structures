@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ClusterConfiguratorHelper.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">helper</a> &gt; <a href="index.source.html" class="el_package">com.kodcu.helper</a> &gt; <span class="el_source">ClusterConfiguratorHelper.java</span></div><h1>ClusterConfiguratorHelper.java</h1><pre class="source lang-java linenums">package com.kodcu.helper;
+
+
+import com.hazelcast.config.Config;
+import com.hazelcast.config.GroupConfig;
+import com.hazelcast.config.InterfacesConfig;
+import com.hazelcast.config.JoinConfig;
+
+/**
+ * @author hakdogan (hakdogan@kodcu.com)
+ * Created on 2019-03-01
+ */
+
+public class ClusterConfiguratorHelper
+{
+
+    private ClusterConfiguratorHelper(){}
+
+    public static Config getHazelcastConfiguration(){
+<span class="nc" id="L20">        final Config config = new Config();</span>
+<span class="nc" id="L21">        final GroupConfig groupConfig = config.getGroupConfig();</span>
+<span class="nc" id="L22">        groupConfig.setName(&quot;dev&quot;).setPassword(&quot;dev-pass&quot;);</span>
+
+<span class="nc" id="L24">        final JoinConfig joinConfig = config.getNetworkConfig().getJoin();</span>
+<span class="nc" id="L25">        joinConfig.getMulticastConfig().setEnabled(false);</span>
+<span class="nc" id="L26">        joinConfig.getTcpIpConfig().setEnabled(true).addMember(&quot;127.0.0.1&quot;);</span>
+
+<span class="nc" id="L28">        final InterfacesConfig interfaceConfig = config.getNetworkConfig().getInterfaces();</span>
+<span class="nc" id="L29">        interfaceConfig.setEnabled(true).addInterface( &quot;127.0.0.1&quot; );</span>
+
+<span class="nc" id="L31">        return config;</span>
+    }
+
+    public static Config getHazelcastConfigurationSetUp(String[] members, String interfaceS){
+<span class="nc" id="L35">        final Config config = new Config();</span>
+<span class="nc" id="L36">        final GroupConfig groupConfig = config.getGroupConfig();</span>
+<span class="nc" id="L37">        groupConfig.setName(&quot;dev&quot;).setPassword(&quot;dev-pass&quot;);</span>
+
+<span class="nc" id="L39">        final JoinConfig joinConfig = config.getNetworkConfig().getJoin();</span>
+<span class="nc" id="L40">        joinConfig.getMulticastConfig().setEnabled(false);</span>
+<span class="nc bnc" id="L41" title="All 2 branches missed.">        for(int i = 0; i &lt; members.length; i++){</span>
+<span class="nc" id="L42">            joinConfig.getTcpIpConfig().setEnabled(true).addMember(members[i]);</span>
+        }
+
+<span class="nc" id="L45">        final InterfacesConfig interfaceConfig = config.getNetworkConfig().getInterfaces();</span>
+<span class="nc" id="L46">        interfaceConfig.setEnabled(true).addInterface( interfaceS );</span>
+
+<span class="nc" id="L48">        return config;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

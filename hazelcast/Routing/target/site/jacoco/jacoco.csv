@@ -1,0 +1,5 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+routing,com.kodcu.main,Starter,55,0,4,0,14,0,7,0,5,0
+routing,com.kodcu.routing.verticle,LimiterVerticle,0,63,0,0,0,11,0,2,0,2
+routing,com.kodcu.routing.handler,RateLimiterHandler,15,114,1,5,6,34,1,6,0,4
+routing,com.kodcu.routing.handler,CircuitBreakerHandler,13,39,2,2,5,13,2,4,0,4

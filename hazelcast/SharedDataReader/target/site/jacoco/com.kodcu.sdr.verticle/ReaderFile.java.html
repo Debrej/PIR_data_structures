@@ -76,78 +76,74 @@ public class ReaderFile extends AbstractVerticle
 <span class="nc" id="L76">        sharedData.&lt;String, byte[]&gt;getAsyncMap(DEFAULT_ASYNC_MAP_NAME, res -&gt; {</span>
 <span class="nc bnc" id="L77" title="All 2 branches missed.">              if (res.succeeded()) {</span>
 <span class="nc" id="L78">                AsyncMap&lt;String, byte[]&gt; fileExchangeAsyncMap = res.result();</span>
-                // try{
-                //   Thread.sleep(3000);
-                // }catch(Exception e){
-                //
-                // }
+            
 
-<span class="nc" id="L85">                LocalDateTime dateTime = LocalDateTime.now();</span>
+<span class="nc" id="L81">                LocalDateTime dateTime = LocalDateTime.now();</span>
 
-<span class="nc" id="L87">                fileExchangeAsyncMap.get(key[0], asyncDataResult -&gt; {</span>
+<span class="nc" id="L83">                fileExchangeAsyncMap.get(key[0], asyncDataResult -&gt; {</span>
 
 
-<span class="nc" id="L90">                    byte[] byteArray = asyncDataResult.result();</span>
+<span class="nc" id="L86">                    byte[] byteArray = asyncDataResult.result();</span>
                     try {
                         // byteArray = decompress(byteArray);
-<span class="nc" id="L93">                        fileExchange = new File(&quot;images/&quot;+key[1]);</span>
-<span class="nc" id="L94">                        FileUtils.writeByteArrayToFile(fileExchange, byteArray);</span>
+<span class="nc" id="L89">                        fileExchange = new File(&quot;images/&quot;+key[1]);</span>
+<span class="nc" id="L90">                        FileUtils.writeByteArrayToFile(fileExchange, byteArray);</span>
 
-<span class="nc" id="L96">                        LocalDateTime dateTime2 = LocalDateTime.now();</span>
+<span class="nc" id="L92">                        LocalDateTime dateTime2 = LocalDateTime.now();</span>
 
-<span class="nc" id="L98">                        log.info(&quot;Stock Exchange object is {} &quot;, fileExchange);</span>
-<span class="nc" id="L99">                        log.info(&quot;Date is {}&quot;, dateTime2);</span>
-<span class="nc" id="L100">                        double time = computeTime(dateTime, dateTime2);</span>
-<span class="nc" id="L101">                        log.info(&quot;Data read in {}s  &quot;, time);</span>
-<span class="nc" id="L102">                        log.info(&quot;Data length : &quot;+fileExchange.length()+&quot;octets&quot;);</span>
+<span class="nc" id="L94">                        log.info(&quot;Stock Exchange object is {} &quot;, fileExchange);</span>
+<span class="nc" id="L95">                        log.info(&quot;Date is {}&quot;, dateTime2);</span>
+<span class="nc" id="L96">                        double time = computeTime(dateTime, dateTime2);</span>
+<span class="nc" id="L97">                        log.info(&quot;Data read in {}s  &quot;, time);</span>
+<span class="nc" id="L98">                        log.info(&quot;Data length : &quot;+fileExchange.length()+&quot;octets&quot;);</span>
 
-<span class="nc" id="L104">                        String line =  String.valueOf(time);</span>
+<span class="nc" id="L100">                        String line =  String.valueOf(time);</span>
 
-<span class="nc" id="L106">                        writer.println(line);</span>
-<span class="nc" id="L107">                        writer.flush();</span>
-<span class="nc" id="L108">                    } catch (Exception e) {</span>
-<span class="nc" id="L109">                        e.printStackTrace();</span>
-<span class="nc" id="L110">                    }</span>
+<span class="nc" id="L102">                        writer.println(line);</span>
+<span class="nc" id="L103">                        writer.flush();</span>
+<span class="nc" id="L104">                    } catch (Exception e) {</span>
+<span class="nc" id="L105">                        e.printStackTrace();</span>
+<span class="nc" id="L106">                    }</span>
 
-<span class="nc" id="L112">                });</span>
-<span class="nc" id="L113">            } else {</span>
-<span class="nc" id="L114">                log.debug(&quot;Something went wrong when access to shared map!&quot;);</span>
+<span class="nc" id="L108">                });</span>
+<span class="nc" id="L109">            } else {</span>
+<span class="nc" id="L110">                log.debug(&quot;Something went wrong when access to shared map!&quot;);</span>
             }
 
-<span class="nc" id="L117">        });</span>
+<span class="nc" id="L113">        });</span>
       }
-<span class="nc" id="L119">    }</span>
+<span class="nc" id="L115">    }</span>
 
     private double computeTime(LocalDateTime d1, LocalDateTime d2){
-<span class="nc" id="L122">        int m1=d1.getMinute();</span>
-<span class="nc" id="L123">        int m2=d2.getMinute();</span>
-<span class="nc" id="L124">        int s1=d1.getSecond();</span>
-<span class="nc" id="L125">        int s2 =d2.getSecond();</span>
-<span class="nc" id="L126">        int n1=d1.getNano();</span>
-<span class="nc" id="L127">        int n2=d2.getNano();</span>
-<span class="nc" id="L128">        double m = 0, n = 0, s = 0;</span>
+<span class="nc" id="L118">        int m1=d1.getMinute();</span>
+<span class="nc" id="L119">        int m2=d2.getMinute();</span>
+<span class="nc" id="L120">        int s1=d1.getSecond();</span>
+<span class="nc" id="L121">        int s2 =d2.getSecond();</span>
+<span class="nc" id="L122">        int n1=d1.getNano();</span>
+<span class="nc" id="L123">        int n2=d2.getNano();</span>
+<span class="nc" id="L124">        double m = 0, n = 0, s = 0;</span>
 
-<span class="nc bnc" id="L130" title="All 2 branches missed.">        if(n1&gt;n2){</span>
-<span class="nc" id="L131">            n = n2-n1+1E9;</span>
-<span class="nc" id="L132">            s = s-1;</span>
+<span class="nc bnc" id="L126" title="All 2 branches missed.">        if(n1&gt;n2){</span>
+<span class="nc" id="L127">            n = n2-n1+1E9;</span>
+<span class="nc" id="L128">            s = s-1;</span>
         }else{
-<span class="nc" id="L134">            n=n2-n1;</span>
+<span class="nc" id="L130">            n=n2-n1;</span>
         }
 
-<span class="nc bnc" id="L137" title="All 2 branches missed.">        if(s1&gt;s2){</span>
-<span class="nc" id="L138">            s=s+s2-s1+60;</span>
-<span class="nc" id="L139">            m=m-1;</span>
+<span class="nc bnc" id="L133" title="All 2 branches missed.">        if(s1&gt;s2){</span>
+<span class="nc" id="L134">            s=s+s2-s1+60;</span>
+<span class="nc" id="L135">            m=m-1;</span>
         }else{
-<span class="nc" id="L141">            s=s+s2-s1;</span>
+<span class="nc" id="L137">            s=s+s2-s1;</span>
         }
 
-<span class="nc bnc" id="L144" title="All 2 branches missed.">        if(m1&gt;m2){</span>
-<span class="nc" id="L145">            m=m+m2-m1+60;</span>
+<span class="nc bnc" id="L140" title="All 2 branches missed.">        if(m1&gt;m2){</span>
+<span class="nc" id="L141">            m=m+m2-m1+60;</span>
         }else{
-<span class="nc" id="L147">            m=m+m2-m1;</span>
+<span class="nc" id="L143">            m=m+m2-m1;</span>
         }
 
-<span class="nc" id="L150">        return m*60+s+(n/1E9);</span>
+<span class="nc" id="L146">        return m*60+s+(n/1E9);</span>
     }
 
 
