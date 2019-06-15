@@ -30,18 +30,19 @@ public class ReaderFile extends AbstractVerticle
 {
     private static final String TEMPLATE_FILE_NAME = "/index.ftl";
     private File fileExchange;
+    private boolean decompressing;
 
     PrintWriter writer;
-    final int nmbSearch=1;
     String[] keys;
     /**
      *
      * @param future
      */
 
-     public ReaderFile(String[] keys, PrintWriter writer){
+     public ReaderFile(String[] keys, PrintWriter writer, boolean decompressing){
        this.keys=keys;
        this.writer=writer;
+       this.decompressing=decompressing;
      }
 
      public static byte[] decompress(byte[] data) throws IOException, DataFormatException {
@@ -63,21 +64,16 @@ public class ReaderFile extends AbstractVerticle
 
           for(String k:keys){
               String[] key = k.split(",");
-
               saveExchangeData(key);
-              System.out.println("lancé");
         }
     }
 
 
     private void saveExchangeData(String[] key){
-      for(int i=0;i<nmbSearch;i++){
         SharedData sharedData = vertx.sharedData();
         sharedData.<String, byte[]>getAsyncMap(DEFAULT_ASYNC_MAP_NAME, res -> {
               if (res.succeeded()) {
                 AsyncMap<String, byte[]> fileExchangeAsyncMap = res.result();
-            
-
                 LocalDateTime dateTime = LocalDateTime.now();
 
                 fileExchangeAsyncMap.get(key[0], asyncDataResult -> {
@@ -85,17 +81,17 @@ public class ReaderFile extends AbstractVerticle
 
                     byte[] byteArray = asyncDataResult.result();
                     try {
-                        // byteArray = decompress(byteArray);
+                      if(decompressing)
+                        byteArray = decompress(byteArray);
+
+                        byte[] finalByteArray = byteArray;
                         fileExchange = new File("images/"+key[1]);
-                        FileUtils.writeByteArrayToFile(fileExchange, byteArray);
+                        FileUtils.writeByteArrayToFile(fileExchange, finalByteArray);
 
                         LocalDateTime dateTime2 = LocalDateTime.now();
-
-                        log.info("Stock Exchange object is {} ", fileExchange);
-                        log.info("Date is {}", dateTime2);
                         double time = computeTime(dateTime, dateTime2);
+
                         log.info("Data read in {}s  ", time);
-                        log.info("Data length : "+fileExchange.length()+"octets");
 
                         String line =  String.valueOf(time);
 
@@ -111,7 +107,6 @@ public class ReaderFile extends AbstractVerticle
             }
 
         });
-      }
     }
 
     private double computeTime(LocalDateTime d1, LocalDateTime d2){
