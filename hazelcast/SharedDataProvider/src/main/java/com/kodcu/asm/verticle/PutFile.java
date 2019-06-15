@@ -30,9 +30,11 @@ public class PutFile extends AbstractVerticle
 {
   private String[] keys;
   private String DIRECTORY="imagesSources/";
+  private boolean compressing;
 
-  public PutFile(String[] keys){
+  public PutFile(String[] keys, boolean compressing){
     this.keys = keys;
+    this.compressing = compressing;
   }
 
   public static byte[] compress(byte[] data) throws IOException {
@@ -59,13 +61,15 @@ public class PutFile extends AbstractVerticle
             String[] key = k.split(",");
             File fileExchange = new File(DIRECTORY+key[1]);
             byte[] byteArray = FileUtils.readFileToByteArray(fileExchange);
-            // byte[] dataCompress = compress(byteArray);
+            if(compressing)
+              byteArray=compress(byteArray);
 
+            byte[] finalByteArray = byteArray;
             sharedData.<String, byte[]>getAsyncMap(DEFAULT_ASYNC_MAP_NAME, res -> {
                   if (res.succeeded()) {
                       AsyncMap<String, byte[]> myAsyncMap = res.result();
                       myAsyncMap.get(k, asyncDataResult -> {
-                          myAsyncMap.put(key[0], byteArray, resPut -> {
+                          myAsyncMap.put(key[0], finalByteArray, resPut -> {
                               if (resPut.succeeded()) {
                                   log.info("Added data into the map {} ", String.valueOf(fileExchange));
                               } else {

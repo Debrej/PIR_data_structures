@@ -26,16 +26,18 @@ public class Starter {
     public static void main(String[] args){
 
         try {
-            String membersStr = new String(Files.readAllBytes(Paths.get(args[0])));
+            String membersStr = new String(Files.readAllBytes(Paths.get("StartFiles/members.txt")));
             String[] members = membersStr.split("\n");
-            String keysStr = new String(Files.readAllBytes(Paths.get(args[2])));
+            String keysStr = new String(Files.readAllBytes(Paths.get("StartFiles/filenamesProvider.txt")));
             String[] keys = keysStr.split("\n");
 
-            final ClusterManager mgr = new HazelcastClusterManager(ClusterConfiguratorHelper.getHazelcastConfigurationSetUp(members, args[1]));
+            boolean compressing = Boolean.parseBoolean(System.getProperty("compressing"));
+
+            final ClusterManager mgr = new HazelcastClusterManager(ClusterConfiguratorHelper.getHazelcastConfigurationSetUp(members, args[0]));
             final VertxOptions options = new VertxOptions().setClusterManager(mgr);
             Vertx.clusteredVertx(options, cluster -> {
                 if (cluster.succeeded()) {
-                    cluster.result().deployVerticle(new PutFile(keys), res -> {
+                    cluster.result().deployVerticle(new PutFile(keys,compressing), res -> {
                         if (res.succeeded()) {
                             log.info("Deployment id is: {} ", res.result());
                         } else {
