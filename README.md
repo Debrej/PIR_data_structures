@@ -8,7 +8,7 @@ mvn clean install
 Ensuite, on ouvre deux terminaux dans le dossier hazelcast. On entre les commandes suivantes :
 
 ```
-hazelcast$ java -Dcompressing=<true or false> -jar SharedDataProvider/target/asyncPutVerticle.jar <interface> <sleeptime (ms)> -cluster
+hazelcast$ java -Dcompressing=<true or false> -Dtest=<true or false> -jar SharedDataProvider/target/asyncPutVerticle.jar <interface> <sleeptime (ms)> -cluster
 
 hazelcast$ java -Ddecompressing=<true or false> -jar SharedDataReader/target/asyncReaderVerticle.jar <interface> <sleeptime(ms)> <nmbReader> -cluster
 ```
@@ -44,7 +44,7 @@ Les fichiers récupérés seront placés dans le dossier hazelcast/images
 
 
 #Exemple de test :
-pour la colone localhost, 1 fichier, image, Uniforme, Non Compressé, 5ko, 1 reader :
+pour la colone localhost, 1 fichier, image, Uniforme, Non Compressé, 5ko, 1 reader, GET :
 	- dans un terminal, dans le dossier StartFiles :
 
 ```
@@ -54,7 +54,7 @@ java createKeys 1 img5ko.jpeg
 	- dans un terminal, dans le dossier hazelcast :
 
 ```
-java -Dcompressing=false -jar SharedDataProvider/target/asyncPutVerticle.jar 127.0.0.1 -cluster
+java -Dcompressing=false -Dtest=false -jar SharedDataProvider/target/asyncPutVerticle.jar 127.0.0.1 -cluster
 ```
 
 	- dans un terminal, dans le dossier hazelcast :
@@ -70,3 +70,6 @@ java computeMoyenne
 ```
 
 	- Les résultats se trouvent dans les fichiers TestsResults/MoyenneRead.txt et TestsResults/MoyennePut.txt
+
+
+ATTENTION : Ne pas lancer les tests de put et get en même temps. Si on veut tester les put : mettre -Dtest=true / Si on veut tester les get : mettre -Dtest=false dans la ligne de code SharedDataProvider

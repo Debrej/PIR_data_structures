@@ -41,6 +41,7 @@ public class Starter {
             String[] keys = keysStr.split("\n");
 
             boolean compressing = Boolean.parseBoolean(System.getProperty("compressing"));
+            boolean test = Boolean.parseBoolean(System.getProperty("test"));
             PrintWriter writer;
             writer = new PrintWriter("TestsResults/temps_put.txt");
 
@@ -50,7 +51,8 @@ public class Starter {
 
             Vertx.clusteredVertx(options, cluster -> {
                 if (cluster.succeeded()) {
-                  cluster.result().setPeriodic(sleepTime, asyncHandler -> {
+		   if(test){
+                    cluster.result().setPeriodic(sleepTime, asyncHandler -> {
 
                     cluster.result().deployVerticle(new PutFile(keys,writer,compressing), Doptions, res -> {
                         if (res.succeeded()) {
@@ -60,7 +62,15 @@ public class Starter {
                         }
                     });
                   });
-
+	         }else{
+	           cluster.result().deployVerticle(new PutFile(keys,writer,compressing), Doptions, res -> {
+                        if (res.succeeded()) {
+                            log.info("Deployment id is: {} ", res.result());
+                        } else {
+                            log.error("Deployment failed!", res.cause());
+                        }
+                    });
+		}
                 } else {
                     log.error("Cluster up failed!", cluster.cause());
                 }
