@@ -8,7 +8,7 @@ mvn clean install
 Ensuite, on ouvre deux terminaux dans le dossier hazelcast. On entre les commandes suivantes :
 
 ```
-hazelcast$ java -Dcompressing=<true or false> -Dtest=<true or false> -jar SharedDataProvider/target/asyncPutVerticle.jar <interface> <sleeptime (ms)> -cluster
+hazelcast$ java -Dcompressing=<true or false> -Dtest=<true or false> -jar SharedDataProvider/target/asyncPutVerticle.jar <interface> <sleeptime (ms)> <nmbProvider> -cluster
 
 hazelcast$ java -Ddecompressing=<true or false> -jar SharedDataReader/target/asyncReaderVerticle.jar <interface> <sleeptime(ms)> <nmbReader> -cluster
 ```
@@ -54,7 +54,7 @@ java createKeys 1 img5ko.jpeg
 	- dans un terminal, dans le dossier hazelcast :
 
 ```
-java -Dcompressing=false -Dtest=false -jar SharedDataProvider/target/asyncPutVerticle.jar 127.0.0.1 -cluster
+java -Dcompressing=false -Dtest=false -jar SharedDataProvider/target/asyncPutVerticle.jar 127.0.0.1 1000 1 -cluster
 ```
 
 	- dans un terminal, dans le dossier hazelcast :

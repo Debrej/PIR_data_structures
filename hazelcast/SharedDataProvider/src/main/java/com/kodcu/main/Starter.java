@@ -1,6 +1,8 @@
 package com.kodcu.main;
 
 import com.kodcu.asm.verticle.PutFile;
+import com.kodcu.asm.verticle.PutFileInfini;
+
 import com.kodcu.helper.ClusterConfiguratorHelper;
 import io.vertx.core.Vertx;
 import io.vertx.core.VertxOptions;
@@ -32,6 +34,7 @@ public class Starter {
 
     public static void main(String[] args){
       int sleepTime=Integer.parseInt(args[1]);
+      int nmbProvider=Integer.parseInt(args[2]);
 
 
         try {
@@ -51,15 +54,15 @@ public class Starter {
 
             Vertx.clusteredVertx(options, cluster -> {
                 if (cluster.succeeded()) {
-		   if(test){
+		                if(test){
                     cluster.result().setPeriodic(sleepTime, asyncHandler -> {
+                      for(int i=1;i<nmbProvider;i++){
+                      cluster.result().deployVerticle(new PutFileInfini(keys,compressing), Doptions, res -> {
+                       });
+                     }
 
-                    cluster.result().deployVerticle(new PutFile(keys,writer,compressing), Doptions, res -> {
-                        if (res.succeeded()) {
-                            log.info("Deployment id is: {} ", res.result());
-                        } else {
-                            log.error("Deployment failed!", res.cause());
-                        }
+                      cluster.result().deployVerticle(new PutFile(keys,writer,compressing), Doptions, res -> {
+                      
                     });
                   });
 	         }else{
