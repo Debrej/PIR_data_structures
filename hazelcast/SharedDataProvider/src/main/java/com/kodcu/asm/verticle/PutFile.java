@@ -82,7 +82,7 @@ public class PutFile extends AbstractVerticle
                               if (resPut.succeeded()) {
                                 LocalDateTime dateTime2 = LocalDateTime.now();
                                 double time = computeTime(dateTime, dateTime2);
-                                log.info("Added data into the map {} ", String.valueOf(fileExchange));
+                                
                                 log.info("Data put in {}s  ", time);
 
                                 String line =  String.valueOf(time);

@@ -52,7 +52,7 @@ public class Starter {
             writer = new PrintWriter("TestsResults/temps_lecture.txt");
 
             final ClusterManager mgr = new HazelcastClusterManager(ClusterConfiguratorHelper.getHazelcastConfigurationSetUp(members, args[0]));
-            final VertxOptions options = new VertxOptions().setClusterManager(mgr).setMaxEventLoopExecuteTime(Long.MAX_VALUE);
+            final VertxOptions options = new VertxOptions().setClusterManager(mgr).setMaxEventLoopExecuteTime(Long.MAX_VALUE).setWorkerPoolSize(100);
 
             final DeploymentOptions Doptions = new DeploymentOptions().setWorker(true);
             Vertx.clusteredVertx(options, cluster -> {
