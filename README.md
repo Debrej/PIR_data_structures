@@ -8,7 +8,7 @@ mvn clean install
 Ensuite, on ouvre deux terminaux dans le dossier hazelcast. On entre les commandes suivantes :
 
 ```
-hazelcast$ java -Dcompressing=<true or false> -jar SharedDataProvider/target/asyncPutVerticle.jar <interface> -cluster
+hazelcast$ java -Dcompressing=<true or false> -jar SharedDataProvider/target/asyncPutVerticle.jar <interface> <sleeptime (ms)> -cluster
 
 hazelcast$ java -Ddecompressing=<true or false> -jar SharedDataReader/target/asyncReaderVerticle.jar <interface> <sleeptime(ms)> <nmbReader> -cluster
 ```
@@ -69,5 +69,4 @@ java -Ddecompressing=false -jar SharedDataReader/target/asyncReaderVerticle.jar 
 java computeMoyenne
 ```
 
-	- Le résultat se trouve dans le fichier TestsResults/Moyenne.txt
-
+	- Les résultats se trouvent dans les fichiers TestsResults/MoyenneRead.txt et TestsResults/MoyennePut.txt

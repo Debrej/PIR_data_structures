@@ -94,7 +94,6 @@ public class ReaderFile extends AbstractVerticle
                         log.info("Data read in {}s  ", time);
 
                         String line =  String.valueOf(time);
-
                         writer.println(line);
                         writer.flush();
                     } catch (Exception e) {

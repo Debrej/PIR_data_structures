@@ -62,7 +62,6 @@ public class Starter {
                         cluster.result().deployVerticle(new ReaderFileInfini(keys,decompressing), Doptions , res -> {
                         });
                       }
-
                       cluster.result().deployVerticle(new ReaderFile(keys,writer,decompressing), Doptions , res -> {
                       });
                   });

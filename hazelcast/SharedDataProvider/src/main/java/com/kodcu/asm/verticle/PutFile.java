@@ -8,6 +8,8 @@ import org.apache.commons.io.FileUtils;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.time.LocalDateTime;
 
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
@@ -31,9 +33,12 @@ public class PutFile extends AbstractVerticle
   private String[] keys;
   private String DIRECTORY="imagesSources/";
   private boolean compressing;
+  private PrintWriter writer;
 
-  public PutFile(String[] keys, boolean compressing){
+
+  public PutFile(String[] keys,PrintWriter writer, boolean compressing){
     this.keys = keys;
+    this.writer=writer;
     this.compressing = compressing;
   }
 
@@ -57,30 +62,76 @@ public class PutFile extends AbstractVerticle
     @Override
     public void start() throws IOException, NoSuchAlgorithmException  {
         final SharedData sharedData = vertx.sharedData();
-        for(String k:keys){
-            String[] key = k.split(",");
-            File fileExchange = new File(DIRECTORY+key[1]);
-            byte[] byteArray = FileUtils.readFileToByteArray(fileExchange);
-            if(compressing)
-              byteArray=compress(byteArray);
 
-            byte[] finalByteArray = byteArray;
-            sharedData.<String, byte[]>getAsyncMap(DEFAULT_ASYNC_MAP_NAME, res -> {
-                  if (res.succeeded()) {
-                      AsyncMap<String, byte[]> myAsyncMap = res.result();
-                      myAsyncMap.get(k, asyncDataResult -> {
+        sharedData.<String, byte[]>getAsyncMap(DEFAULT_ASYNC_MAP_NAME, res -> {
+          AsyncMap<String, byte[]> myAsyncMap = res.result();
+
+            if (res.succeeded()) {
+              try{
+              for(String k:keys){
+                  String[] key = k.split(",");
+                  File fileExchange = new File(DIRECTORY+key[1]);
+                  LocalDateTime dateTime = LocalDateTime.now();
+
+                  byte[] byteArray = FileUtils.readFileToByteArray(fileExchange);
+                  if(compressing)
+                    byteArray=compress(byteArray);
+
+                  byte[] finalByteArray = byteArray;
                           myAsyncMap.put(key[0], finalByteArray, resPut -> {
                               if (resPut.succeeded()) {
-                                  log.info("Added data into the map {} ", String.valueOf(fileExchange));
+                                LocalDateTime dateTime2 = LocalDateTime.now();
+                                double time = computeTime(dateTime, dateTime2);
+                                log.info("Added data into the map {} ", String.valueOf(fileExchange));
+                                log.info("Data put in {}s  ", time);
+
+                                String line =  String.valueOf(time);
+                                writer.println(line);
+                                writer.flush();
+
                               } else {
                                   log.debug("Failed to add data {} ", String.valueOf(fileExchange));
                               }
                           });
-                      });
+                    }
+                  }catch(Exception e){
+
+                  }
                   } else {
                       log.debug("Failed to get map!");
                   }
-            });
-        }
-    }
+          });
+      }
+
+      private double computeTime(LocalDateTime d1, LocalDateTime d2){
+          int m1=d1.getMinute();
+          int m2=d2.getMinute();
+          int s1=d1.getSecond();
+          int s2 =d2.getSecond();
+          int n1=d1.getNano();
+          int n2=d2.getNano();
+          double m = 0, n = 0, s = 0;
+
+          if(n1>n2){
+              n = n2-n1+1E9;
+              s = s-1;
+          }else{
+              n=n2-n1;
+          }
+
+          if(s1>s2){
+              s=s+s2-s1+60;
+              m=m-1;
+          }else{
+              s=s+s2-s1;
+          }
+
+          if(m1>m2){
+              m=m+m2-m1+60;
+          }else{
+              m=m+m2-m1;
+          }
+
+          return m*60+s+(n/1E9);
+      }
 }

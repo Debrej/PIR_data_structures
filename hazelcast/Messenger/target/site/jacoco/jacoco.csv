@@ -1,5 +1,0 @@
-GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-non-cluster-messenger,com.kodcu.messenger.verticle,MessengerLauncher,4,30,1,1,1,9,1,4,0,4
-non-cluster-messenger,com.kodcu.messenger.verticle,ReceiverVerticle,0,29,0,0,0,9,0,4,0,4
-non-cluster-messenger,com.kodcu.messenger.verticle,SenderVerticle,3,59,1,1,1,14,1,5,0,5
-non-cluster-messenger,com.kodcu.main,Starter,29,0,2,0,9,0,5,0,4,0

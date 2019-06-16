@@ -1,4 +1,8 @@
 */target/
 *.log
+imagesSources/
+images/
+SharedDataProvider/target/
+SharedDataReader/target/
 
 .idea/

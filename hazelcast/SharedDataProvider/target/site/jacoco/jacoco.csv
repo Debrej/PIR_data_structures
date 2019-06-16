@@ -1,4 +1,0 @@
-GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-shared-data-provider,com.kodcu.main,Starter,95,0,4,0,21,0,7,0,5,0
-shared-data-provider,com.kodcu.asm.verticle,PutVerticle,8,113,2,2,2,22,2,7,0,7
-shared-data-provider,com.kodcu.asm.verticle,PutFile,150,0,8,0,37,0,11,0,7,0
