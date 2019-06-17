@@ -32,14 +32,15 @@ public class PutFile extends AbstractVerticle
 {
   private String[] keys;
   private String DIRECTORY="imagesSources/";
-  private boolean compressing;
+  private boolean compressing; //deprecate (on utilise la frequence d'accès pour determiner la compression)
   private PrintWriter writer;
 
 
   public PutFile(String[] keys,PrintWriter writer, boolean compressing){
     this.keys = keys;
     this.writer=writer;
-    this.compressing = compressing;
+    //this.compressing = compressing;
+    this.compressing = false;
   }
 
   public static byte[] compress(byte[] data) throws IOException {
@@ -74,7 +75,7 @@ public class PutFile extends AbstractVerticle
                   LocalDateTime dateTime = LocalDateTime.now();
 
                   byte[] byteArray = FileUtils.readFileToByteArray(fileExchange);
-                  if(compressing)
+                  if(compressing || )
                     byteArray=compress(byteArray);
 
                   byte[] finalByteArray = byteArray;
